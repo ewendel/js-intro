@@ -1,17 +1,32 @@
+/*  
+    FUN WITH FUNCTIONS
+
+    In this section, you'll create function-creating functions.
+    Whaat?
+
+    Take a step back, think, and ask for help if it doesn't make any sense!
+*/
+
 // Create a function that returns a new function that returns true when called.
 function createFunction() {}
 
-// Make the function times return a function that 
-// returns the next multiple of n for each subsequent call.
-// times(2) should return 2,4,6,8, etc
-// times(3) should return 3,6,9,12
-var times = function (n) {};
+/*
+    Make the function timesCreator return a function that 
+    returns the next multiple of n for each subsequent call.
+    timesCreator(2) should return a function that gives 2,4,6,8, etc
+    timesCreator(3) should return a function that gives 3,6,9,12
+*/
+var timesCreator = function (n) {};
 
-var times2 = times(2);
+var times2 = timesCreator(2);
 
-// Memoization
-// Make a function memoize that will take a function fn and a number n
-// and return a new function that serves as a memoized version of fn.
+/*
+    Memoization
+    Make a function memoize that will take a function fn and a number n
+    and return a new function that serves as a memoized version of fn.
+
+    https://en.wikipedia.org/wiki/Memoization
+*/
 const memoize = fn => {}
 
 test('Fun with functions', function() {

@@ -1,25 +1,51 @@
 /*
-    STRINGS
+    STRINGS INCORPORATED
+
+    You're a junior programmed at STRINGS INCORPORATED,
+    creating highly specialized string software.
+    Complete the functions in this file as per the instructions.
 */
 
-// skal returnere true hvis strengen er lenger enn åtte tegn
+// Long strings are <8 characters long.
 function isLong(str) {}
 
-// skal returnere inputstrengen i store bokstaver fulgt av tre utropstegn:
+// Stuff gets more important UPPERCASED and with a couple of exclamations!
 // makeImportant('hey, man') -> 'HEY, MAN!!!'
 function makeImportant(message) {}
 
+// Cookie man is constantly in search of cake.
+// If "food" contains the string 'cake', return 'CAKE!!!', otherwise false.
 function cookieMonster(food) {}
 
-// The Mumbler
+/* 
+    The Mumbler
+    I couldn't understand what the client wanted me to do, he mumbled like a caveman!
+    See the test below for hints.
+*/
 function mumble(input) {}
 
-// The Trolls!
-// "This website is for losers LOL!" => "Ths wbst s fr lsrs LL!".
+/* 
+    The Trolls!
 
-function trolls(input) {}
+    Our forum is infected with trolls. 
+    Lets just filter them out for now - remove all vowels from forum posts!
+    "This website is for losers LOL!" -> "Ths wbst s fr lsrs LL!".
+*/
 
+function trolls(message) {}
+
+/*
+    Lastly, we need a way to determine whether a string is 
+    a palindrome or not - create such a function.
+*/
 function isPalindrome(input) {}
+
+/*
+    Oh, and one more thing, due to new EU regulations, we need a mirror in our office.
+    A mirror will return the given string concatened with the given string reversed.
+    mirror('yes') -> 'yessey'
+*/
+function mirror(input) {}
 
 test('Strings', function() {
     equal(isLong('trump'), false, 'isLong()');
@@ -43,4 +69,8 @@ test('Strings', function() {
     ok(isPalindrome('anna'), 'isPalindrome()');
     ok(isPalindrome('ann'), 'isPalindrome()');
     ok(isPalindrome('anna oxo anna'), 'isPalindrome()');
+
+    equal(mirror('yes'), 'yessey', 'mirror()');
+    equal(mirror('duke of york'), 'duke of yorkkroy fo ekud', 'mirror()');
+    equal(mirror('desserts'), 'dessertsstressed', 'mirror()');
 })
