@@ -41,8 +41,9 @@ class: split
 
 * NTNU 2012, kommunikasjonstekn.
 * 4 år i BEKK
+* SpareBank1 i 4 år, Mobilbank & Nettbank
 * Fagleder for Frontendarkitektur 
-* SpareBank1, Mobilbank & Nettbank
+* Bootcampcoach på 3. året
 
 ---
 
@@ -1503,9 +1504,11 @@ class: agenda
 
 * Arrow functions (ok)
 * ES6 Modules
+* Template literals
+* Default params
 * Destructuring
-* Rest
-* Spread
+* Rest parameters
+* Spread operator
 * Classes
 * Promises
 * Map & Set
@@ -1530,6 +1533,39 @@ export default React;
 --
 ```javascript
 export function formatAccountNumber(accNo) {
+    ...
+}
+```
+
+---
+class: middle center
+# Template literals
+
+_... finally_
+
+```javascript
+'hello ' + name + '!'
+`hello ${name}!`
+```
+
+---
+
+class: middle 
+# Default parameters
+
+```javascript
+function hello(who='World') {
+    return 'Hello ' + who + '!';
+}
+```
+
+---
+
+class: middle 
+# Default parameters
+
+```javascript
+function loadUser(userId = throwError()) {
     ...
 }
 ```
@@ -1571,6 +1607,20 @@ const func = ({ url, options }) => { ... }
 
 ---
 
+# Array destructuring
+
+```javascript
+const temperatureHistory = [20.9, 22.2, 21.4, 21.0, etc];
+
+const [mostRecent, secondMostRecent] = temperatureHistory;
+```
+--
+```javascript
+const [oldest, ...allButOldest] = temperatureHistory.reverse();
+```
+
+---
+
 # Rest params
 
 ```javascript
@@ -1601,6 +1651,52 @@ const params = [1,2,3,4,5];
 sum(...params);
 
 function sum(a,b,c,d,e) { ... }
+```
+
+---
+
+# Classes
+
+```javascript
+class Animal {
+    constructor(color) {
+        this.color = color;
+    }
+}
+
+class Doge extends Animal {
+    constructor(color, race) {
+        super(color);
+        this.race = race;
+    }
+    bark() {
+        return 'Woof!';
+    }
+}
+
+let charlie = new Doge('black', 'dobermann');
+```
+
+---
+
+class: middle center
+# Promises
+
+_ekte, native promises_
+
+---
+
+class: middle center
+# Map & Set
+
+```javascript
+var mySet = new Set();
+
+mySet.add(1);
+
+mySet.has(1); // true
+mySet.size; // 4
+mySet.delete(5); // removes 5 from the set
 ```
 
 ---
