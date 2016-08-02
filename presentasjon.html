@@ -14,6 +14,15 @@
   <body>
     <textarea id='source'>
 
+class: middle 
+
+## Mens vi venter..
+
+* Klon repoet fra https://github.com/ewendel/js-intro
+* Svar på tilbakemeldingskjema for igår: http://is.gd/bootcampdag1
+
+---
+
 class: front-page
 
 ![](bilder/js.png)
@@ -1474,16 +1483,98 @@ console.log(per.katt); // undefined
 ---
 
 class: middle center
+![]()
+# Oppgaver!
+
+Fortsett der dere slapp i _oppgaver.html_
+
+---
+
+class: middle center
 ![](bilder/babel.png)
 # EcmaScript 6
 .. eller ES6, eller ES2015
 
 ---
 
+class: agenda
+
+# Agenda
+
+* Arrow functions (ok)
+* ES6 Modules
+* Destructuring
+* Rest
+* Spread
+* Classes
+* Promises
+* Map & Set
+
+---
+
+# Modules
+
+```javascript
+import React from 'react';
+import { formatAccountNumber } from './sparebank1-utils';
+```
+--
+```javascript
+const React = {
+    createComponent: function() { ... },
+    ...
+}
+
+export default React;
+```
+--
+```javascript
+export function formatAccountNumber(accNo) {
+    ...
+}
+```
+
+---
+
+class: middle center
+# Destructuring
+
+når du kun vil ha deler av et objekt eller array
+
+---
+
+# Destructuring
+
+```javascript
+const config = {
+    url: 'https://...',
+    timeout: 100,
+    ...
+}
+
+const { url, timeout } = config;
+```
+--
+```javascript
+function(options) {
+    const { url, timeout } = options;
+}
+```
+--
+```javascript
+function({ url, options }) {
+    
+}
+
+const func = ({ url, options }) => { ... }
+```
+
+---
+
 # Rest params
 
 ```javascript
-function(first, ...rest) { ... }
+function(first, second, third, ...rest) { ... }
 ```
 --
 ```javascript
@@ -1494,8 +1585,55 @@ function sum(...numbers) {
 
 ---
 
+# Spread operator
+
+"sprer" arrayelementer utover
+
+```javascript
+const arr1 = [1,2,3];
+const arr2 = [2,3,4];
+
+const combined = [...arr1, arr2]
+```
+--
+```javascript
+const params = [1,2,3,4,5];
+sum(...params);
+
+function sum(a,b,c,d,e) { ... }
+```
+
+---
+
+class: middle center
+![]()
+# Oppgaver!
+
+Fortsett der dere slapp i _oppgaver.html_
+
+---
+
+class: split
+
+![](bilder/road.jpg)
+# JS-Veien videre
+
+* Frontendkurs: 3 dager
+    * HTML
+    * CSS
+    * DOM + jQuery
+    * React + Redux
+* Læring på prosjekt
+* Egen kompetansebygging
+* 2017: faggrupper
+    * Frontendarkitektur
+    * Webgrensesnitt
+
+---
+
 class: middle center
 # Thats all, folks!
+
 
     </textarea>
 
