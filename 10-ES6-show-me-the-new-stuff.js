@@ -85,7 +85,7 @@ const luke = {
 test('ES6', function() {
     equal(footerMessage(fullName, lastLogon, weatherForecast), 
           'Hello, Josefine Pettersen! Your last logon was yesterday at 10:55. Todays weather forecast is sunny',
-          'This test should pass initially');
+          'This test is supposed to pass');
 
     equal(footerMessage(undefined, undefined, weatherForecast),
           'Hello, Bjarne Betjent! Your last logon was today at noon. Todays weather forecast is sunny');
