@@ -13,6 +13,7 @@
 var aNumber;
 var aBoolean;
 var aString;
+// should be computed then converted to String
 var aStringlyTypedNumber;
 
 var anObject;

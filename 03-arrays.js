@@ -48,6 +48,25 @@ const types = [];
 
 let veryLargeArray;
 
+/* ------------------------------------------------- 
+    Part 4
+    Tech leadership would like to know the average and median 
+    bootcamp coach experience in years.
+
+    Create functions to find the average and median values of an array.
+    Note: the median function should also support arrays of even length
+    https://en.wikipedia.org/wiki/Median
+   ------------------------------------------------- */
+
+const coachExperience = [4,5,3,3,1,5,3,6,8,3,6,6,8];
+
+// round to one decimal
+let averageCoachExperience;
+let medianCoachExperience;
+
+function average(list) {}
+function median(list) {}
+
 test('Arrays', function() {
     equal(coachCount, 13);
     equal(fifthCoachName, 'Ingvild');
@@ -58,4 +77,7 @@ test('Arrays', function() {
 
     equal(veryLargeArray.length, 100, 'A very large array');
     equal((new Set(veryLargeArray || [])).size, 100, 'A very large array should contain unique elements');
+
+    equal(averageCoachExperience, 4.7, 'average coach experience')
+    equal(medianCoachExperience, 5, 'median coach experience')
 })
