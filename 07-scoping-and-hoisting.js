@@ -2,7 +2,7 @@
     SCOPING AND HOISTING
     Your task: make all the asserts pass
     Possible actions:
-        change double dots into
+        change empty strings into
             variables
             function calls
             typeof-s
@@ -32,12 +32,12 @@ var s = 1;
 
     test('Scope (inside function)', function() {
 
-        ok( a === 2);
-        ok( b === 4);
-        ok( C === 3);
-        ok( d === 1);
-        ok( s === 2);
-        ok( typeof f === 'undefined');
+        ok( '' === 2);
+        ok( '' === 4);
+        ok( '' === 3);
+        ok( '' === 1);
+        ok( '' === 2);
+        ok( '' === 'undefined');
 
     });
 
@@ -45,11 +45,11 @@ var s = 1;
 
 test('Scope (outside function)', function() {
 
-    ok( a === 2);
-    ok( b === 4);
-    ok( typeof C === 'undefined');
-    ok( d === 1);
-    ok( s === 1);
-    ok( typeof f === 'undefined');
+    ok( '' === 2);
+    ok( '' === 4);
+    ok( '' === 'undefined');
+    ok( '' === 1);
+    ok( '' === 1);
+    ok( '' === 'undefined');
 
 }); 

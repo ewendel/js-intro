@@ -13,11 +13,11 @@
 
 // Create a method "square()" that accepts an array
 // of numbers and returns these numbers squared (x^2)
-const square = x => x.map(y => y*y);
+let square;
 
 // Create a method "onlyOdds()" that accepts an array
 // of numbers and returns only the odd numbers of the array 
-const onlyOdds = x => x.filter(y => y % 2 === 1);
+let onlyOdds;
 
 /* ------------------------------------------------- */
 // Part 2 - Playing with people
@@ -34,16 +34,16 @@ const people = [
 { name: 'Jessica', age: 25 }];
 
 // Create an array containing all the people's names
-const names = people.map(x => x.name);
+let names;
 
 // Create an array containing names of the underaged people (<18)
-const underagedNames = people.filter(p => p.age < 18).map(p => p.name)
+let underagedNames;
 
 // Create an array containing all ages, sorted ascending
-const sortedAges = people.map(p => p.age).sort();
+let sortedAges;
 
 // Find the average age
-const averageAge = people.map(p => p.age).reduce((x,y) => x+y, 0)/people.length;
+let averageAge;
 
 
 /*  
@@ -62,21 +62,12 @@ const averageAge = people.map(p => p.age).reduce((x,y) => x+y, 0)/people.length;
     the amount of days until you run out of water.
 */
 
-function thirstyIn(water, ageArray) {
-    const ageToConsumption = age => {
-        if (age < 18) return 1;
-        if (age <= 50) return 2;
-        return 1.5;
-    };
+function thirstyIn(water, ageArray) {}
 
-    const dailyConsumption = ageArray
-            .map(ageToConsumption)
-            .reduce((x,y) => x+y, 0);
-  
-    return Math.floor(water / dailyConsumption); 
-}
+// Determine how long the folks in the array up top will 
+// last with a water supply for 1000 liters
 
-const waterSupplyInDays = thirstyIn(1000, people.map(p => p.age));
+let waterSupplyInDays;
 
 test('Map, filter, reduce', function() {
     deepEqual(square([1,2,3,4,5]), [1,4,9,16,25], 'square');

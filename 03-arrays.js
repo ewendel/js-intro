@@ -11,14 +11,14 @@ const coacher = ['Erik', 'Tine', 'Ola', 'Nicolay', 'Ingvild', 'Ingrid', 'Espen',
 /* ------------------------------------------------- */
 
 // find the amount of coaches programatically
-const coachCount = coacher.length;
+let coachCount;
 // put the name of the fifth coach in here
-const fifthCoachName = coacher[4];
+let fifthCoachName;
 // find the index of Espen
-const espenIndex = coacher.indexOf('Espen');
+let espenIndex;
 // lastly, we want a string in the following format:
 // 'ERIK-TINE-OLA-NICOLAY' etc. (check out "join()")
-const uppercasedCoachNames = coacher.join('-').toUpperCase();
+let uppercasedCoachNames;
 
 /* ------------------------------------------------- */
 // Part 2
@@ -39,7 +39,7 @@ var collection = [
 
 const types = [];
 
-collection.forEach(c => types.push(typeof c));
+
 
 test('Arrays', function() {
     equal(coachCount, 13);

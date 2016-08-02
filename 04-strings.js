@@ -3,43 +3,28 @@
 */
 
 // skal returnere true hvis strengen er lenger enn åtte tegn
-function isLong(str) {
-    return str.length > 8;
-}
+function isLong(str) {}
 
 // skal returnere inputstrengen i store bokstaver fulgt av tre utropstegn:
 // makeImportant('hey, man') -> 'HEY, MAN!!!'
-function makeImportant(message) {
-    return message.toUpperCase() + '!!!';
-}
+function makeImportant(message) {}
 
-function cookieMonster(food) {
-    return food.toLowerCase().includes('cake') ? makeImportant('cake') : false;
-}
+function cookieMonster(food) {}
 
 // The Mumbler
-function mumble(input) {
-    return input
-            .split('')
-            .map((c, idx) => c.toUpperCase() + c.toLowerCase().repeat(idx))
-            .join('-');
-}
+function mumble(input) {}
 
 // The Trolls!
 // "This website is for losers LOL!" => "Ths wbst s fr lsrs LL!".
 
-function trolls(input) {
-    return input.replace(/[aeiouyAEIOUY]/g, '');
-}
+function trolls(input) {}
 
-function isPalindrome(input) {
-    return input.split('').reverse().join('');
-}
+function isPalindrome(input) {}
 
 test('Strings', function() {
-    notOk(isLong('trump'), 'isLong()');
+    equal(isLong('trump'), false, 'isLong()');
     ok(isLong('trump university'), 'isLong()');
-    notOk(isLong('winning'), 'isLong()');
+    equal(isLong('winning'), false, 'isLong()');
     ok(isLong('moustache mario'), 'isLong()')
 
     equal(makeImportant('helloes'), 'HELLOES!!!')

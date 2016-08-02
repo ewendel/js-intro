@@ -10,18 +10,14 @@
     (modifying the tests is very bad and definately frowned upon or worse)
 */
 
-var aNumber = 12;
-var aBoolean = true;
-var aString = 'Mickey Mouse';
-var aStringlyTypedNumber = 123*456;
+var aNumber;
+var aBoolean;
+var aString;
+var aStringlyTypedNumber;
 
-var anObject = {
-    company: 'BEKK',
-    level: 1,
-    awesome: true
-};
+var anObject;
 
-var anArray = [1,1,1,1,1];
+var anArray;
 
 test('Datatypes', function() {
     equal(typeof aNumber, 'number', 'aNumber must be a number');

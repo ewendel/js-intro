@@ -3,31 +3,18 @@
 */
 
 // Write a function "echo3rd()" that returns the first argument
-function echo(a) {
-    return a;
-}
-
+function echo() {}
 // Write a function "echo3rd()" that returns the third argument
-function echo3rd(a,b,c) {
-    return c;
-}
+function echo3rd() {}
 
 // Lag en funksjon som tar inn og summerer to tall
-function add(a,b) { 
-    return a + b 
-}
+function add() {}
 
-function countArguments() {
-    return arguments.length;
-}
+// countarguments
+function countArguments() {}
 
-function addAll() {
-    let sum = 0;
-    for (let i=0 ; i < arguments.length ; i++) {
-        sum += arguments[i];
-    }
-    return sum;
-}
+// sumAll
+function sumAll() {}
 
 // As a last assignment, try to re-write all the functions above as arrow functions
 // (what's an arrow function?
@@ -48,7 +35,7 @@ test('Simple functions', function() {
     equal(countArguments(true, ''), 2, 'countArguments()');
     equal(countArguments(false, 1, 'hello'), 3, 'countArguments()');
 
-    equal(addAll(1,2,3,4,5), 15, 'addAll()');
-    equal(addAll(1,2,3,4,5,6), 21, 'addAll()');
+    equal(sumAll(1,2,3,4,5), 15, 'sumAll()');
+    equal(sumAll(1,2,3,4,5,6), 21, 'sumAll()');
 
 });
