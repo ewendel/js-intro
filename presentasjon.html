@@ -16,6 +16,8 @@
 
 class: front-page
 
+![](bilder/js.png)
+
 # Dagskurs i JavaScript
 ## En introduksjon til språket
 
@@ -24,25 +26,21 @@ Erik Wendel
 
 ---
 
-class: middle center
-.card[
-.picture[
-  ![Erik](bilder/rsz_erik.jpg)
-]
-.name[Erik Wendel]
-.title[Faggruppeleder]
-.department[Technology]
-.phone[416 972 26]
-.email[erik.wendel@bekk.no]
-]
+class: split
+![Erik](bilder/rsz_erik.jpg)
+# Erik Wendel
+
+* NTNU 2012, kommunikasjonstekn.
+* 4 år i BEKK
+* Fagleder for Frontendarkitektur 
+* SpareBank1, Mobilbank & Nettbank
 
 ---
 
-class: middle split
-
-![Javascript](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/javascript.png)
+class: middle center
 
 ## JavaScript er ...
+
 
 --
 
@@ -67,7 +65,7 @@ class: agenda
 # Dagens agenda
 
 * bakgrunn og historie
-* gjenomgang av språket
+* språklig gjennomgang
 * kodeoppgaver
 
 ---
@@ -82,59 +80,87 @@ class: middle, center
 
 ---
 
-# 1995
+class: stretch
+background-image: url(bilder/1990_stil.jpg)
 
-Brendan Eich blir ansatt for å lage et programmeringsspråk til Netscape Navigator Beta 2.0
-(les mer om dette)
+---
+
+background-image: url(bilder/gangstas_paradise.jpg)
+
+---
+
+background-image: url(bilder/goldeneye.jpg)
+
+---
+
+background-image: url(bilder/waterworld.jpg)
+
+---
+
+background-image: url(bilder/navigator2.png)
+
+class: middle
+ ## Netscape Navigator
 
 ---
 
 class: split
+![](bilder/navigator2.png)
 
-.left[![](bilder/explorer.jpg)]
-.right[![Right-aligned image](bilder/navigator2.png)]
+## Netscape Navigator
+
+* av Mosaic (senere Mozilla)
+* 1993: versjon 1.0
+* 1995: Brendan Eich ansettes
+* Mocha 
+* -> LiveScript
+* Java blir voldsomt populært 
+* -> JavaScript
 
 ---
 
-# ECMAScript 1.0
-Juni 1997
+# ECMAScript 1
+
+_Mozilla leverer JS til ECMA_
+
+* Juni 1997: ECMAScript standardisert
+--
+
+* 1998: ECMAScript 2
+
+--
+
+* 1999: ECMAScript 3
+
+--
+
+* 2004: ECMAScript 4 tryner
+
+--
+
+* 2009: ECMAScript 5
+
+--
+
+* 2015: ECMAScript 6
 
 ---
 
-class: middle center
-
-HTML beskriver hva innholdet er.
-
-CSS beskriver hvordan innholdet ser ut.
-
-Men hva hvis vi trenger dynamisk oppførsel?
-
-???
-
-For å ta en kort recap: 
-
-( les opp )
-
+background-image: url(bilder/browsers.png)
 
 ---
 
 class: center
 
-![Javascript](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/javascript.png)
+![Javascript](bilder/engineer.png)
 
 ???
 
-Det er her JS kommer inn.
 Weben har gått fra å levere statiske dokumenter til å bli verdens største, distribuerte applikasjonsplattform.
 Det merkes.
 JS er ikke egentlig laget for å skrive svære apps, men med tiden har man fått crowbaret til inn på en sjarmerende måte.
 
-For å ta litt historie:
-JS ble skrevet av Brendan Eich da han jobbet for Netscape (som laget NN) i 1995.
-På ti dager. Hvorfor? Fordi de sloss mot IE, som hadde sitt eget VBscript og senere JScript, som var en kopi av JavaScript.
-
-JS var for viktig til å legge dets utviklings i hendene til to rivaliserende teknologiselskapet, så de sendte inn JS til et selskap som drev med standarder og het ECMA. Dermed var ECMAScript født, som er standarden dagens JavaScript-implementasjone er basert på.
-Som med HTML-tags, HTML5 features og CSS-properties er man avhengig av at nettleserne selv implementerer og støtter standerden, slik at også her finnes plenty forskjeller mellom nettleserne.
+Uten JS hadde vi ikke fått til blandet annet... dette
 
 ---
 
@@ -801,6 +827,18 @@ Multilines require _return_
 ---
 
 class: middle center
+![]()
+# Oppgaver!
+
+Finn filen _oppgaver.html_ og åpne denne i Chrome.
+
+Skriv JS-kode rett i filene fra 01-data-types og utover,
+og få testene til å kjøre!.
+
+
+---
+
+class: middle center
 # Funksjoner
 ## Høyereordens funksjoner
 
@@ -1151,282 +1189,313 @@ window.name === 'bob'  // true    WTF?
 ---
 
 class: middle center
+![](bilder/context.gif)
+# Context
+## _this_ i JavaScript
+
+---
+
+class: middle center
+# Context
+
+_Tommelfingerregelen: this = window_
+```javascript
+// Første huskeregel:
+object.method() // this = object
+```
+--
+```javascript
+// Andre huskeregel: konstruktører
+const honda = new Car();
+```
+--
+```javascript
+// Tredje huskeregel: call, apply og bind
+myFunction(1,2); // window
+myFunction.call(object, 1, 2); // object
+myFunction.apply(object, [1,2]); // object
+
+newFunc = myFunction.bind(object);
+newFunc(1,2);
+```
+---
+
+class: middle center
+# Context
+
+call og apply lar deg kalle funksjoner med selvvalgt kontekst
+
+bind lar deg skape nye funksjoner med låst kontekst
+
+---
+
+class: middle center
+![](bilder/arv.jpg)
 # Arv
 
 ---
 
-# Arv
-## Liten recap: 
-
-* Alt er objekter i javascript
-* Typer: function, number, boolean, string
-
----
-
-# Arv
-## Liten recap: 
-
-* Alt er objekter i javascript
-* Typer: function, number, boolean, string
-* Har egenskaper som de **arver fra prototypen sin**
-
----
-
+class: middle center
 # Arv
 
-## Arver egenskaper fra prototypen sin: 
-  
-    var navn = 'Erik';
-    navn.charAt(0); // 'H'
-
-    // charAt() arves fra String.prototype
-
----
-
-# Arv
-
-## Vi kan dermed utvide en prototype:
-
-For eksempel **String**: 
-
-    String.prototype.log = function() {
-        console.log('Logged string: ' + String(this));
-    };
-
-    var navn = 'Erik Wendel'
-    navn.log(); // 'Logged string: Erik Wendel'
-
----
-
-# Arv
-
-
-Eller **Array**
-
-    if (!Array.prototype.filter) {
-      Array.prototype.filter = function(filterFunction) {
-        
-      }
-    }
-
----
-
-# Arv
-
-## Men ofte lager vi våre egne objekter
-
-Disse arver fra sin prototype
-
-...Og de arver fra Object.prototype
-
----
-
-# Arv
-
-## Constructor Invocation
-
-Som vi vet: 
-
-    var Person = function(navn) {
-        this.navn = navn;
-    };
-
----
-
-# Arv
-
-## Constructor Invocation
-
-Som vi vet: 
-
-    var Person = function(navn) {
-        this.navn = navn;
-    };
-
-    var erik = new Person('erik');
-    erik.navn // 'erik'
+```javascript  
+'hello'.length; // 5
+'hello'.charAt(0); // 'h'
+'hello, world'.replace('hello', 'goodbye'); // 'goodbye, world'
+'hello'.toUpperCase(); // 'HELLO'
+'hello'.split(''); // ['h', 'e', 'l', 'l', 'o']
+myFunction.call();
+myFunction.apply();
+(25.0000004).toFixed(2);
+```
 
 ---
 
 class: middle center
 
-# Prototype Chain
+![](bilder/blueprint.jpg)
+# Prototype
+
+---
+
+class: middle center
+
+![](bilder/prototype.png)
+# Prototype
+
+---
+
+```javascript
+  /**
+   * Injects an ordering of plugins (by plugin name). This allows the ordering
+   * to be decoupled from injection of the actual plugins so that ordering is
+   * always deterministic regardless of packaging, on-the-fly injection, etc.
+   *
+   * @param {array} InjectedEventPluginOrder
+   * @internal
+   * @see {EventPluginHub.injection.injectEventPluginOrder}
+   */
+  injectEventPluginOrder: function (InjectedEventPluginOrder) {
+    !!EventPluginOrder ? "development" !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject event plugin ordering more than once. You are likely trying to load more than one copy of React.') : _prodInvariant('101') : void 0;
+    // Clone the ordering so it cannot be dynamically mutated.
+    EventPluginOrder = Array.prototype.slice.call(InjectedEventPluginOrder);
+    recomputePluginOrdering();
+  }
+```
 
 ---
 
 # Arv
 
-    var Person = function(navn, stilling, firma) {
-        this.navn = navn;
-        this.stilling = stilling;
-        this.firma = firma;
-        this.hils = function() {
-            console.log('Hei, jeg heter ' + this.navn);
-        };
-    };
+_Prototyper kan utvides_
+
+
+```javascript
+String.prototype.log = function() {
+    console.log('Logged string: ' + String(this));
+};
+
+var navn = 'Erik Wendel'
+navn.log(); // 'Logged string: Erik Wendel'
+```
+--
+```javascript
+if (!Array.prototype.filter) {
+  Array.prototype.filter = function() { ... }
+}
+```
 
 ---
 
-# Arv 
-
-    var Person = function(navn, stilling, firma) {
-        this.navn = navn;
-        this.stilling = stilling;
-        this.firma = firma;
-        this.hils = function() {
-            console.log('Hei, jeg heter ' + this.navn);
-        };
-    };
-
-    var pat = new Person('Pat', 'postmann', 'Posten');
-    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
+class: middle center
+# Prototype Chain
+![](bilder/protochain.png)
 
 ---
 
-# Arv 
+# Arv
 
-    var Person = function(navn, stilling, firma) {
-        this.navn = navn;
-        this.stilling = stilling;
-        this.firma = firma;
-        this.hils = function() {
-            console.log('Hei, jeg heter ' + this.navn);
-        };
-    };
-
-    var pat = new Person('Pat', 'postmann', 'Posten');
-    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
-    pat.hils(); // 'Hei, jeg heter Pat'
-
----
-
-# Arv 
-
-    var Person = function(navn, stilling, firma) {
-        this.navn = navn;
-        this.stilling = stilling;
-        this.firma = firma;
-        /* this.hils = function() {
-            console.log('Hei, jeg heter ' + this.navn);
-        }; */
-    };
-
-    var pat = new Person('Pat', 'postmann', 'Posten');
-    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
----
-
-# Arv 
-
-    var Person = function(navn, stilling, firma) {
-        this.navn = navn;
-        this.stilling = stilling;
-        this.firma = firma;
-    };
-
-    var pat = new Person('Pat', 'postmann', 'Posten');
-    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
----
-
-# Arv 
-
-    var Person = function(navn, stilling, firma) {
-        this.navn = navn;
-        this.stilling = stilling;
-        this.firma = firma;
-    };
-
-    var pat = new Person('Pat', 'postmann', 'Posten');
-    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
-    Person.prototype.hils = function() {
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+    this.hils = function() {
         console.log('Hei, jeg heter ' + this.navn);
     };
+};
+```
 
 ---
 
 # Arv 
 
-    var Person = function(navn, stilling, firma) {
-        this.navn = navn;
-        this.stilling = stilling;
-        this.firma = firma;
-    };
-
-    var pat = new Person('Pat', 'postmann', 'Posten');
-    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
-    Person.prototype.hils = function() {
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+    this.hils = function() {
         console.log('Hei, jeg heter ' + this.navn);
-    }
+    };
+};
 
-    nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
-    pat.hils(); // 'Hei, jeg heter Pat'
+var pat = new Person('Pat', 'postmann', 'Posten');
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
+```
 
 ---
 
 # Arv 
 
-    var Person = function(navn, stilling, firma) {
-        this.navn = navn;
-        this.stilling = stilling;
-        this.firma = firma;
-    };
-
-    var pat = new Person('Pat', 'postmann', 'Posten');
-    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
-    Person.prototype.hils = function() {
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+    this.hils = function() {
         console.log('Hei, jeg heter ' + this.navn);
-    }
+    };
+};
 
-    nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
-    pat.hils(); // 'Hei, jeg heter Pat'
+var pat = new Person('Pat', 'postmann', 'Posten');
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
 
-    pat.katt = 'Miss'; 
+pat.hils(); // 'Hei, jeg heter Pat'
+```
 
 ---
 
 # Arv 
 
-    var Person = function(navn, stilling, firma) {
-        this.navn = navn;
-        this.stilling = stilling;
-        this.firma = firma;
-    };
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+};
 
-    var pat = new Person('Pat', 'postmann', 'Posten');
-    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
-    Person.prototype.hils = function() {
-        console.log('Hei, jeg heter ' + this.navn);
-    }
-
-    nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
-    pat.hils(); // 'Hei, jeg heter Pat'
-
-    pat.katt = 'Miss'; 
-
-    console.log(pat.katt); // 'Miss'
-    console.log(per.katt); // undefined   
+var pat = new Person('Pat', 'postmann', 'Posten');
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
+```
 
 ---
 
-class: yellow middle center
+# Arv 
 
-# Oppgaver - del 3
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+};
 
-## Prøv å få <a href='del3/tester.html'>testene</a> til å bli grønne
-(oppgavene ligger i 05-javascript intro/del3/oppgave{1-5}.js)
+var pat = new Person('Pat', 'postmann', 'Posten');
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
+
+Person.prototype.hils = function() {
+    console.log('Hei, jeg heter ' + this.navn);
+};
+```
 
 ---
 
-class: middle center yellow
+# Arv 
 
-  # <a href='../06-dom & jquery/javascript-dom.html'>Neste del</a>
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+};
 
+var pat = new Person('Pat', 'postmann', 'Posten');
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
+
+Person.prototype.hils = function() {
+    console.log('Hei, jeg heter ' + this.navn);
+}
+
+nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
+pat.hils(); // 'Hei, jeg heter Pat'
+```
+
+---
+
+# Arv 
+
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+};
+
+var pat = new Person('Pat', 'postmann', 'Posten');
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
+
+Person.prototype.hils = function() {
+    console.log('Hei, jeg heter ' + this.navn);
+}
+
+nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
+pat.hils(); // 'Hei, jeg heter Pat'
+
+pat.katt = 'Miss'; 
+```
+
+---
+
+# Arv 
+
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn;
+    this.stilling = stilling;
+    this.firma = firma;
+};
+
+var pat = new Person('Pat', 'postmann', 'Posten');
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
+
+Person.prototype.hils = function() {
+    console.log('Hei, jeg heter ' + this.navn);
+}
+
+nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
+pat.hils(); // 'Hei, jeg heter Pat'
+
+pat.katt = 'Miss'; 
+
+console.log(pat.katt); // 'Miss'
+console.log(per.katt); // undefined   
+```
+
+---
+
+class: middle center
+![](bilder/babel.png)
+# EcmaScript 6
+.. eller ES6, eller ES2015
+
+---
+
+# Rest params
+
+```javascript
+function(first, ...rest) { ... }
+```
+--
+```javascript
+function sum(...numbers) {
+    return numbers.reduce((x,y) => x+y, 0);
+}
+```
+
+---
+
+class: middle center
+# Thats all, folks!
 
     </textarea>
 
