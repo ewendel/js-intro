@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
     <title>Introduksjon til JavaScript</title>
-    <link href="node_modules/remark-bekk/dist/bekk.css" type="text/css" rel="stylesheet">
+    <link href='node_modules/remark-bekk/dist/bekk.css' type='text/css' rel='stylesheet'>
     
-    <style type="text/css" media="screen">
+    <style type='text/css' media='screen'>
 
       .jquery { background-color: #1E2837; }
 
     </style>
   </head>
   <body>
-    <textarea id="source">
+    <textarea id='source'>
 
 class: front-page
 
@@ -38,7 +38,9 @@ class: middle center
 
 ---
 
-class: middle center
+class: middle split
+
+![Javascript](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/javascript.png)
 
 ## JavaScript er ...
 
@@ -62,24 +64,21 @@ fullt av bugs
 
 class: agenda
 
-# Dagens pensum
+# Dagens agenda
 
 * bakgrunn og historie
-* datatyper
-* objekter
-* funksjoner
-* arrays
-* arv og prototype
-* spread + rest operatorer (ES6)
-* default params (ES6)
-* classes (ES6)
-* modules (ES6)
+* gjenomgang av språket
+* kodeoppgaver
 
 ---
 
-class: middle center
+class: stretch
+background-image: url(bilder/time-machine.jpg)
 
-![](bilder/time-machine.jpg)
+--
+
+class: middle, center
+## 1995
 
 ---
 
@@ -87,6 +86,13 @@ class: middle center
 
 Brendan Eich blir ansatt for å lage et programmeringsspråk til Netscape Navigator Beta 2.0
 (les mer om dette)
+
+---
+
+class: split
+
+.left[![](bilder/explorer.jpg)]
+.right[![Right-aligned image](bilder/navigator2.png)]
 
 ---
 
@@ -184,9 +190,23 @@ class: middle center
 
 ---
 
+class: agenda
+
+# Dagens pensum
+
+* data og typer
+* objekter
+* arrays
+* funksjoner
+* arv og prototyper
+* standardbibliotek: Date, Math, Array, String
+* ES6: spread, rest, default params, classes, modules (ES6)
+
+---
+
 class: middle center
 
-# La oss ta en rask introduksjon
+# Show me some code!
 
 ???
 
@@ -198,22 +218,402 @@ SPØR OM HJELP DERSOM NOE ER VANSKELIG! Serr!
 
 ---
 
+# Typer i JavaScript
+
+    Number
+    Boolean
+    String
+    Object
+    Symbol
+    Function
+--
+    undefined
+--
+    null
+--
+    Array
+--
+    Date
+--
+    RegExp
+
+
+---
+
+# Typer i JavaScript
+
+    Number
+    Boolean
+    String
+    Symbol
+    Object
+        Function
+        Array
+        Date
+        RegExp
+    null
+    undefined
+
+---
+
+
+
 # Variabler, objekter og datatyper
 
 Variabler er typeløse i JS
 
-    var errorText = 'Det har oppstått en feil'; // String
-    var successText = "Hurra! Alt gikk bra."; // også String
+```javascript
+var errorText = "Det har oppstått en feil"; // String
+var successText = 'Hurra! Alt gikk bra.'; // String
+```
+--
+```javascript
+var loggedIn = true; // Boolean
+```
+--
+```javascript
+var authLevel = 2; Number (heltall)
+```
+--
+```javascript
+var interestRate = 2.5; // Number (flyttall)
+```
+--
+```javascript
+interestRate = false; // endre type
+```
+--
+```javascript
+var serviceList = []; // array
+```
 
-    var loggedIn = true; // Boolean
+---
 
-    var authLevel = 2; Number (int)
+class: middle center
 
-    var interestRate = 2.5; // Number (flyttall)
+# Nytt i ECMAScript6
 
-    interestRate = false; // endre type
+```javascript
+var
+let 
+const
+```
 
-    var serviceList = []; // array
+_Kortversjon: alltid const!_
+
+---
+
+# Variabler, objekter og datatyper
+
+```javascript
+const errorText = "Det har oppstått en feil"; // String
+const successText = 'Hurra! Alt gikk bra.'; // String
+
+let loggedIn = true; // Boolean
+
+let authLevel = 2; Number (heltall)
+
+const interestRate = 2.5; // Number (flyttall)
+
+const serviceList = []; // array
+```
+
+---
+
+class: middle center
+
+# Number
+
+```javascript
+const age = 29;
+const PI = 3.14;
+```
+
+_"double-precision 64-bit format IEEE 754 values"_ 
+
+---
+
+class: middle center
+
+# Number
+
+```javascript
+0.1 + 0.2 = ?
+```
+
+---
+
+class: middle center
+
+# Number
+
+```javascript
+0.1 + 0.2 = 0.30000000000000004
+```
+
+???
+
+Troll? :D
+
+---
+
+class: middle center
+
+# Number
+
+```javascript
+Math.sin(3.5);
+Math.PI * (r + r);
+parseInt('1852', 10);
+parseInt(true) === NaN
+true === isNaN(NaN)
+1 / 0 = Infinity
+-1 / 0 = -Infinity
+```
+
+---
+
+class: middle center
+
+# Boolean
+
+```javascript
+true
+false
+```
+--
+```javascript
+(true || false) && false
+```
+--
+```javascript
+Boolean('true') // true
+Boolean(0) // false
+```
+
+---
+
+class: middle center
+
+# Boolean
+
+```javascript
+false
+null
+undefined
+0
+''
+someObject.namee
+```
+_falsy values_
+
+---
+
+class: middle center
+
+# Boolean
+
+```javascript
+if (0) { ...}
+```
+--
+```javascript
+if (listOfStuff.length) { ...}
+```
+--
+```javascript
+if (person.name) { ...}
+// felle! tom streng er falsy
+```
+---
+
+class: middle center
+
+# String
+
+```javascript
+"dobbeltfnutter er lov"
+'men bruk helst enkeltfnutter'
+// char finnes ikke
+```
+--
+```javascript
+'hello'.length; // 5
+'hello'.charAt(0); // 'h'
+'hello, world'.replace('hello', 'goodbye'); // 'goodbye, world'
+'hello'.toUpperCase(); // 'HELLO'
+```
+--
+```javascript
+'hello'.split(''); // ['h', 'e', 'l', 'l', 'o']
+'hello world'.split('lo'); // ['hel', ' world']
+```
+---
+
+class: middle center
+
+# Symbol
+
+```javascript
+const COLOR_RED = Symbol('red');
+COLOR_RED; // Symbol(red);
+Symbol('red') === Symbol('red'); // false
+```
+_Brand new!_
+
+---
+
+class: middle center
+
+# null & undefined
+
+--
+
+##### null
+_a value that indicates a deliberate non-value_
+
+##### undefined
+_indicates an uninitialized value — that is, a value hasn't even been assigned yet_
+
+---
+
+class: middle center
+
+# null & undefined
+
+```javascript
+let user = null; // loaded asynchronously
+
+config.nonExistantProperty // undefined
+```
+
+---
+
+class: middle center
+
+# Object
+
+.. like hashmaps
+
+```javascript
+Map<String, String> myMap = new HashMap<String, String>();
+```
+
+---
+
+# Object
+
+```javascript
+const object = {};
+
+const BEKK = {
+    age: '16',
+    employees: 400
+};
+
+BEKK.age;               // '16'
+BEKK['employees'];      // 400
+BEKK.key3;              // undefined
+
+delete BEKK.age;
+BEKK.age;               // undefined
+```
+_note the commas_
+
+---
+
+# Object
+
+```javascript
+
+const BEKK = {
+    tech: {
+        boss: 'Jobi "Drammen" Birkeland
+    },
+    doWork: function() { ... }
+};
+
+BEKK.doWork(); // Call the method
+BEKK.tech.boss // Nested retrieval
+```
+
+---
+
+# Object
+
+## Arrays
+
+```javascript
+const arr = [1, 2, 3];
+```
+---
+
+# Object
+
+## Arrays
+
+```javascript
+const arr = [1, 'too', { tree: 3 }];
+```
+--
+```javascript
+arr.push(4);
+```
+--
+```javascript
+arr[1]; // 'two'
+arr[3] = 4;
+arr.length; // 4    
+```
+
+_a collection of indexed properties_
+
+---
+
+# Object
+
+## Arrays
+```javascript
+var obj = [1, 2, 3];
+obj.speed = 5; (!)
+```
+--
+```javascript
+obj[1];             // 2
+obj.speed           // 5
+```
+--
+```javascript
+obj.length;         // 3
+obj[80] = true;
+obj.length;          // 81 ... huh?
+```
+
+---
+
+# Object
+
+Iteration: two kinds of loops
+
+```javascript
+var obj = [1, 2, 3];
+obj.speed = 5;
+```
+--
+```javascript
+// traditional for-loop: ideal for number-indexed arrays
+for (var i = 0; i < obj.length; ++i) {
+    obj[i];  // 1, 2, 3
+}
+```
+--
+
+```javascript
+// for in: ideal for objects
+for (var key in obj) {
+    obj[key];  // 1, 2, 3, 5
+}
+```
 
 ---
 
@@ -221,226 +621,67 @@ Variabler er typeløse i JS
 
 Vi kan bruke **typeof**-operatoren for å sjekke type.
 
-    typeof {};          // 'object'
 
+    typeof {};          // 'object'
 --
     typeof [];          // 'object'     WTF?
-
 --
     typeof 1;           // 'number'
-
 --
     typeof '';          // 'string'
-
 --
     typeof true;        // 'boolean'
-
---
-    typeof false;       // 'boolean'
-
 --
     typeof minVar;      // 'undefined'
-
 --
-
     typeof null;        // 'object'     WTF?
-
----
-
-# Variabler, objekter og datatyper
-
-En samling av "key-value"
-
-    var obj = {
-      key1: 'value1',
-      key2: 13
-    };
-
-    obj.key1;         // 'value1'
-    obj['key2'];      // 13
-    obj.key3;         // undefined
-
-    delete obj.key1;
-    obj.key1;         // undefined
-
-???
-
-I Java måtte man typisk først ha laget en klasse og definert at objekter av denne typen vil ha disse feltene. 
-I JS kan man bare slenge på og ta bort felter som man ønsker, runtime.
-
-Dette gjør det lett å referere til felter som ikke finnes og dermed skape trøbbel.
-
----
-
-# Variabler, objekter og datatyper
-
-Value kan være hva som helst.
-
-    var obj = {
-        nestedObj: {
-            nestedProperty: 'en feit streng'
-        },
-        log: function() {
-            console.log('Hello World!');
-        }
-    };
-
-    obj.log(); // Kaller på metoden
-    obj.nestedObj.nestedProperty // Nøster oss nedover
-
----
-
-# Variabler, objekter og datatyper
-
-Nesten alt er objekter i JavaScript
-
-    var navn = "Erik Wendel";
-    typeof navn; // "string"
-
---
-
-    /* Strengen har metoder og attributter */
-    navn.length; // 14
-    navn.substr(0, 5); // Erik
-    navn.split(" "); // ["Erik", "Wendel"]
-    navn.replace("Wendel", "Solbakken"); // Erik Solbakken
-
----
-
-# Variabler, objekter og datatyper
-
-Nesten alt er objekter i JavaScript
-
-    var frukter = ["eple", "banan"];
-    typeof frukter; // "object" (!!)
-
---
-
-    /* Arrayet har metoder og attributter */
-    frukter.length; // 2
-    frukter.push("drue"); // ["eple", "banan", "drue"];
-    frukter.pop(); // ["eple"];
-
----
-
-# Variabler, objekter og datatyper
-
-## Arrays vs. objekter
-
-En samling av indekserte properties.
-
-    var arr = [1, "two", 3];
-
---
-
-    arr.push(4);
-
---
-
-    arr[1];         // "two"
-    arr[3] = 4;
-    arr.length;     // 4    
-
----
-
-# Variabler, objekter og datatyper
-
-## Arrays vs. objekter
-
-Array er ikke "ekte" arrays:
-
-
-    var obj = [1, 2, 3];
-    obj.speed = 5;      // Høh?
-
---
-
-    obj[1];             // 2
-    obj.speed           // 5
-
---
-
-    obj.length;         // 3
-    obj[80] = true
-    obj.length          // 81 ... høh?
-
----
-
-# Arrays vs. objekter
-
-*for (... in ...)* løper igjennom alle property'ene i et objekt
-
-    var obj = [1, 2, 3];
-    obj.speed = 5;
-
---
-
-    for (var i = 0; i < obj.length; ++i) {
-      obj[i];  // 1, 2, 3
-    }
-
---
-
-    for (var key in obj) {
-      obj[key];  // 1, 2, 3, 5
-    }
-
----
-
-# Truthy- and falsyness
-
-    false
-    null
-    undefined
-    0
-    '' // empty string
-    person.undefinedProperty
-
----
-
-# Truthy- and falsyness
-
-    var person = { name: 'David' }
-
-    if (person.name) {
-        // Gjør ting hvis feltet finnes og ikke er falsy
-    }
----
-
-# Equality
-
-    1 == 1                      // -> true
-    1 == ‘1'                    // -> true
-    1 == 2                      // -> false
-
-    // Now things get weird
-    '' == false                 // -> true
-    [] == false                 // -> true, [] not falsy though
-    null == undefined           // -> true
-
----
-
-# Equality
-
-    1 === 1 // -> true
-    1 === '1' // -> false
-    1 === parseInt('1') // -> true
-    [] === false // -> false
-    null === undefined // -> false
-
----
-
-# Equality
-
-    var person = { name: 'David' };
-    var otherPerson = person;
-    person === { name: 'David' } // -> false, nyskapt objekt
-    person === otherPerson // -> true, same referanse
 
 ---
 
 class: middle center
 
+# Equality
+
+```javascript
+1 == 1   // true
+1 == '1' // true
+1 == 2   // false
+
+// Now things get weird
+'' == false       // true
+[] == false       // true
+null == undefined // true
+```
+
+---
+
+class: middle center
+
+# Equality
+
+```javascript
+1 === 1 // true
+1 === '1' // false
+1 === parseInt('1') // true
+[] === false // false
+null === undefined // false
+```
+
+---
+
+class: middle center
+# Equality
+
+```javascript
+const person = { name: 'David' };
+const otherPerson = person;
+person === { name: 'David' } // -> false, nyskapt objekt
+person === otherPerson // -> true, same referanse
+```
+
+---
+
+class: middle center
 # Reserved keywords
 
         break case catch continue debugger default delete
@@ -451,41 +692,52 @@ class: middle center
 
 ---
 
-class: yellow middle center
+class: middle center
 
-# Oppgaver - del 1
+![](bilder/yay.gif)
 
-## Prøv å få <a href="del1/tester.html">testene</a> til å bli grønne
-(oppgavene ligger i 05-javascript intro/del1/oppgave{1-6}.js)
-
+# Funksjoner
 
 ---
 
 class: middle center
-
 # Funksjoner
+
+```javascript
+function() {}
+```
+--
+```javascript
+function myFunc() {}
+const myFunc = function() {}
+myFunc();
+```
 
 ---
 
+class: middle
 # Funksjoner
 
-## En rask intro:
+```javascript
+function divide(a, b) {
+  return a / b;
+}
 
-    function () {}
-
-    function add (a, b) {
-      return a + b;
-    }
+let average = divide(10,2);
+```
 --
-    var multiply = function (a, b) {
-      return a * b;
-    }
---
-    var recur = function (num) {
-      if (num === 0) { return num; }
-      return recur(num - 1);
-    }
 
+```javascript
+function doStuff(a, b, c, d, e) { ... }
+```
+--
+
+```javascript
+let recur = function(num) {
+  ...
+  return recur(num - 1);
+}
+```
 ---
 
 # Funksjoner
@@ -494,31 +746,99 @@ class: middle center
 
 Alle funksjoner har tilgang til _arguments_:
 
-    function countArguments () {
-      return arguments.length;
-    }
+```javascript
+function countArguments() {
+  return arguments.length;
+}
 
-    countArguments();              // 0
-    countArguments('one');         // 1
-    countArguments('one', 'two');  // 2
+countArguments();              // 0
+countArguments('one');         // 1
+countArguments('one', 'two');  // 2
+```
+
+---
+
+class: middle center
+![](bilder/arrow.gif)
+# Arrow functions
+(ES6)
+
+---
+
+class: middle
+# Arrow functions
+
+```javascript
+function addOne(x) {
+    return x + 1;
+}
+
+const addOne = x => x + 1;
+```
+--
+```javascript
+const product = (x,y) => x * y;
+```
+--
+```javascript
+const modifier = () => 250;
+```
+
+---
+
+class: middle
+# Arrow functions
+
+```javascript
+const bigFunc = (x,y,c) => {
+    if (...) return 0;
+    else return -1;
+};
+```
+
+Multilines require _return_
+
+---
+
+class: middle center
+# Funksjoner
+## Høyereordens funksjoner
 
 ---
 
 # Funksjoner
-
 ## Høyereordens funksjoner.
 
 Funksjoner som returnerer andre funksjoner:
 
-    function createFunction () {
-      return function (name) {
-        console.log("Hello, " + name);
-      };
-    }
-    
+```javascript
+function createFunction() {
+  return function(name) {
+    console.log('Hello, ' + name);
+  };
+}
+```
 --
-    var sayHello = createFunction();
-    sayHello("World");  // "Hello World"
+```javascript
+var sayHello = createFunction();
+sayHello('World');  // 'Hello World'
+```
+
+---
+
+# Funksjoner
+## Høyereordens funksjoner.
+
+Funksjoner som returnerer andre funksjoner:
+
+```javascript
+const createFunction = () => {
+  return name => console.log('Hello, ' + name);
+}
+
+const sayHello = createFunction();
+sayHello('World');  // 'Hello World'
+```
 
 ---
 
@@ -528,18 +848,95 @@ Funksjoner som returnerer andre funksjoner:
 
 Funksjoner kan sendes rundt:
 
-    function doSomething(arr, callback) {
-        for(i = 0; i < arr.length; i++) {
-            // do something cool 
-        }
-        callback(); 
+```javascript
+function doSomething(arr, callback) {
+    for (let i = 0; i < arr.length; i++) {
+        // do something cool 
     }
-    
-    var myCallback = function() {
-        console.log("Ferdig!")
-    }
-    doSomething([1,2], myCallback);
+    callback(); 
+}
 
+const myCallback = function() {
+    console.log('Ferdig!')
+}
+doSomething([1,2], myCallback);
+```
+
+---
+
+# Funksjoner
+
+```javascript
+array.forEach((element, index, array) => {
+    console.log(element);    
+});
+```
+--
+```javascript
+const logStuff = (element, index, array) => {
+    console.log(element);    
+}
+array.forEach(logStuff);
+```
+
+---
+
+class: middle center
+# Funksjoner
+
+```javascript
+array.map
+array.filter
+array.reduce
+```
+
+---
+
+class: middle center
+# Funksjoner
+
+```javascript
+array.map(x => x*2)
+array.filter
+array.reduce
+```
+
+---
+
+class: middle center
+# Funksjoner
+
+```javascript
+array.map
+array.filter(x => x > 10)
+array.reduce
+```
+
+---
+
+class: middle center
+# Funksjoner
+
+```javascript
+array.map
+array.filter
+array.reduce((acc, current) => acc + current, 0);
+```
+
+---
+class: middle center
+# Funksjoner
+
+```javascript
+array
+.filter(x => x.age > 18)
+.map(x => x.money)
+.reduce((acc, current) => acc + current, 0);
+```
+
+--
+
+![](bilder/beermoney.gif)
 ---
 
 # Funksjoner
@@ -548,15 +945,17 @@ Funksjoner kan sendes rundt:
 
 JavaScript har *funksjonscope* - ikke blokkscope
 
-    function () {
-      i;  // undefined    WTF?
+```javascript
+function() {
+  i;  // undefined    WTF?
 
-      for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 10; i++) {
 
-      }
+  }
 
-      i;  // 10
-    }   
+  i;  // 10
+}   
+```
 
 ---
 
@@ -566,15 +965,17 @@ JavaScript har *funksjonscope* - ikke blokkscope
 
 Deklarer variabler på toppen av en funksjon!
 
-    function () {
-      var i;
+```javascript
+function() {
+  var i;
 
-      for (i = 0; i < 10; i++) {
+  for (i = 0; i < 10; i++) {
 
-      }
+  }
 
-      i;  // 10
-    } 
+  i;  // 10
+} 
+```
 
 ---
 
@@ -584,15 +985,17 @@ Deklarer variabler på toppen av en funksjon!
 
 Funksjoner har tilgang til alt i ytre scope
 
-    var a = 1;
+```javascript
+var a = 1;
 
-    function doSomething () {
-      a;  // 1
+function doSomething () {
+  a;  // 1
 
-      function doMore () {
-        a;  // 1
-      }
-    }       
+  function doMore () {
+    a;  // 1
+  }
+}       
+```
 
 ---
 
@@ -602,16 +1005,18 @@ Funksjoner har tilgang til alt i ytre scope
 
 Men ikke motsatt
 
-    function doSomething () {
-      var b = 1;
+```javascript
+function doSomething () {
+  var b = 1;
 
-      function doMore () {
-        b;  // 1
-      }
-    }
-    doSomething();
+  function doMore () {
+    b;  // 1
+  }
+}
+doSomething();
 
-    b;  // ReferenceError
+b;  // ReferenceError
+```
 
 ---
 
@@ -621,16 +1026,18 @@ Men ikke motsatt
 
 Husk var - ellers blir variabelen global!
 
-    function doSomething () {
-      c = 1;
+```javascript
+function doSomething () {
+  c = 1;
 
-      function doMore () {
-        c;  // 1
-      }
-    }
-    doSomething();
-
+  function doMore () {
     c;  // 1
+  }
+}
+doSomething();
+
+c;  // 1
+```
 
 ---
 
@@ -640,17 +1047,19 @@ Husk var - ellers blir variabelen global!
 
 Funksjoner kan binde scope:
 
-    var counter = function () {
-      var i = 0;
+```javascript
+const counter = function() {
+  let i = 0;
 
-      return function () {
-        return i++;
-      };
-    };
+  return function() {
+    return i++;
+  };
+};
 
-    var inc = counter();
-    inc();  // 0
-    inc();  // 1
+const inc = counter();
+inc();  // 0
+inc();  // 1
+```
 
 ---
 
@@ -660,16 +1069,18 @@ Funksjoner kan binde scope:
 
 Funksjoner kan kalles umiddelbart:
 
-    var inc = function () {
-      var i = 0;
+```javascript
+var inc = function() {
+  var i = 0;
 
-      return function () {
-        return i++;
-      };
-    }();  // Note the trailing ()!
+  return function() {
+    return i++;
+  };
+}();  // Note the trailing ()!
 
-    inc();  // 0
-    inc();  // 1
+inc();  // 0
+inc();  // 1
+```
 
 ---
 
@@ -679,93 +1090,72 @@ Funksjoner kan kalles umiddelbart:
 
 Lag moduler med privat tilstand:
 
-    var lib = {};
-    lib.module = (function () {
+```javascript
+const lib = {};
+lib.module = (function() {
 
-      var privateVariable;
+  const privateVariable;
 
-      var privateFunction = function () {};
+  const privateFunction = function() {};
 
-      return {
-        publicProperty: 1,
-        privilegedMethod: function (arg) {
-          // privateVariable = arg;
-        }
-      };
+  return {
+    publicProperty: 1,
+    privilegedMethod: function(arg) {
+      // privateVariable = arg;
+    }
+  };
 
-    })();
-
----
-
-# Funksjoner
-
-## Function Invocation
-
-Funksjoner som kalles direkte
-
-    var countArguments = function () {
-      // this === window
-
-      return arguments.length;
-    };
-
-    countArguments();  // 0
+})();
+```
 
 ---
 
 # Funksjoner
-
-## Constructor Invocation
+## Konstruktører
 
 Når vi kaller en funksjon med nøkkelordet *new*, blir funksjonen en konstruktør:
 
-    function Person (name) {
-      // this === en instans av Person
+```javascript
+function Person(name) {
+  // this === et nyskapt object
 
-      this.name = name;
-    }
+  this.name = name;
+  // this returneres implisitt
+}
 
-    var bob = new Person('bob');
-    var ed = new Person('ed');
+const bob = new Person('bob');
+const ed = new Person('ed');
 
-    ed.name = 'fred';
+ed.name = 'fred';
+```
 
 ---
 
 # Funksjoner
 
-## Constructor Invocation
+## Konstruktør
 
 Ooops!
 
-    function Person (name) {
-      this.name = name;
-    }
+```javascript
+function Person(name) {
+  this.name = name;
+}
 
-    var bob = Person('bob');
-    var ed = new Person('ed');
+var bob = Person('bob');
+var ed = new Person('ed');
 
-    window.name === 'bob'  // true    WTF?
-
----
-
-class: yellow middle center
-
-# Oppgaver - del 2
-
-## Prøv å få <a href="del2/tester.html">testene</a> til å bli grønne
-(oppgavene ligger i 05-javascript intro/del2/oppgave{1-6}.js)
+window.name === 'bob'  // true    WTF?
+```
 
 ---
 
 class: middle center
-
 # Arv
 
 ---
 
 # Arv
-
 ## Liten recap: 
 
 * Alt er objekter i javascript
@@ -774,7 +1164,6 @@ class: middle center
 ---
 
 # Arv
-
 ## Liten recap: 
 
 * Alt er objekter i javascript
@@ -787,8 +1176,8 @@ class: middle center
 
 ## Arver egenskaper fra prototypen sin: 
   
-    var navn = "Erik";
-    navn.charAt(0); // "H"
+    var navn = 'Erik';
+    navn.charAt(0); // 'H'
 
     // charAt() arves fra String.prototype
 
@@ -800,12 +1189,12 @@ class: middle center
 
 For eksempel **String**: 
 
-    String.prototype.log = function () {
-        console.log("Logged string: " + String(this));
+    String.prototype.log = function() {
+        console.log('Logged string: ' + String(this));
     };
 
-    var navn = "Erik Wendel"
-    navn.log(); // "Logged string: Erik Wendel"
+    var navn = 'Erik Wendel'
+    navn.log(); // 'Logged string: Erik Wendel'
 
 ---
 
@@ -854,8 +1243,8 @@ Som vi vet:
         this.navn = navn;
     };
 
-    var erik = new Person("erik");
-    erik.navn // "erik"
+    var erik = new Person('erik');
+    erik.navn // 'erik'
 
 ---
 
@@ -867,12 +1256,12 @@ class: middle center
 
 # Arv
 
-    var Person = function (navn, stilling, firma) {
+    var Person = function(navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
         this.firma = firma;
         this.hils = function() {
-            console.log("Hei, jeg heter " + this.navn);
+            console.log('Hei, jeg heter ' + this.navn);
         };
     };
 
@@ -880,147 +1269,147 @@ class: middle center
 
 # Arv 
 
-    var Person = function (navn, stilling, firma) {
+    var Person = function(navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
         this.firma = firma;
         this.hils = function() {
-            console.log("Hei, jeg heter " + this.navn);
+            console.log('Hei, jeg heter ' + this.navn);
         };
     };
 
-    var pat = new Person("Pat", "postmann", "Posten");
-    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+    var pat = new Person('Pat', 'postmann', 'Posten');
+    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
 
 ---
 
 # Arv 
 
-    var Person = function (navn, stilling, firma) {
+    var Person = function(navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
         this.firma = firma;
         this.hils = function() {
-            console.log("Hei, jeg heter " + this.navn);
+            console.log('Hei, jeg heter ' + this.navn);
         };
     };
 
-    var pat = new Person("Pat", "postmann", "Posten");
-    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+    var pat = new Person('Pat', 'postmann', 'Posten');
+    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
 
-    pat.hils(); // "Hei, jeg heter Pat"
+    pat.hils(); // 'Hei, jeg heter Pat'
 
 ---
 
 # Arv 
 
-    var Person = function (navn, stilling, firma) {
+    var Person = function(navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
         this.firma = firma;
         /* this.hils = function() {
-            console.log("Hei, jeg heter " + this.navn);
+            console.log('Hei, jeg heter ' + this.navn);
         }; */
     };
 
-    var pat = new Person("Pat", "postmann", "Posten");
-    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+    var pat = new Person('Pat', 'postmann', 'Posten');
+    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
 
 ---
 
 # Arv 
 
-    var Person = function (navn, stilling, firma) {
+    var Person = function(navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
         this.firma = firma;
     };
 
-    var pat = new Person("Pat", "postmann", "Posten");
-    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+    var pat = new Person('Pat', 'postmann', 'Posten');
+    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
 
 ---
 
 # Arv 
 
-    var Person = function (navn, stilling, firma) {
+    var Person = function(navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
         this.firma = firma;
     };
 
-    var pat = new Person("Pat", "postmann", "Posten");
-    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+    var pat = new Person('Pat', 'postmann', 'Posten');
+    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
 
     Person.prototype.hils = function() {
-        console.log("Hei, jeg heter " + this.navn);
+        console.log('Hei, jeg heter ' + this.navn);
     };
 
 ---
 
 # Arv 
 
-    var Person = function (navn, stilling, firma) {
+    var Person = function(navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
         this.firma = firma;
     };
 
-    var pat = new Person("Pat", "postmann", "Posten");
-    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+    var pat = new Person('Pat', 'postmann', 'Posten');
+    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
 
     Person.prototype.hils = function() {
-        console.log("Hei, jeg heter " + this.navn);
+        console.log('Hei, jeg heter ' + this.navn);
     }
 
-    nils_arne.hils(); // "Hei, jeg heter Nils Arne"
-    pat.hils(); // "Hei, jeg heter Pat"
+    nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
+    pat.hils(); // 'Hei, jeg heter Pat'
 
 ---
 
 # Arv 
 
-    var Person = function (navn, stilling, firma) {
+    var Person = function(navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
         this.firma = firma;
     };
 
-    var pat = new Person("Pat", "postmann", "Posten");
-    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+    var pat = new Person('Pat', 'postmann', 'Posten');
+    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
 
     Person.prototype.hils = function() {
-        console.log("Hei, jeg heter " + this.navn);
+        console.log('Hei, jeg heter ' + this.navn);
     }
 
-    nils_arne.hils(); // "Hei, jeg heter Nils Arne"
-    pat.hils(); // "Hei, jeg heter Pat"
+    nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
+    pat.hils(); // 'Hei, jeg heter Pat'
 
-    pat.katt = "Miss"; 
+    pat.katt = 'Miss'; 
 
 ---
 
 # Arv 
 
-    var Person = function (navn, stilling, firma) {
+    var Person = function(navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
         this.firma = firma;
     };
 
-    var pat = new Person("Pat", "postmann", "Posten");
-    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+    var pat = new Person('Pat', 'postmann', 'Posten');
+    var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
 
     Person.prototype.hils = function() {
-        console.log("Hei, jeg heter " + this.navn);
+        console.log('Hei, jeg heter ' + this.navn);
     }
 
-    nils_arne.hils(); // "Hei, jeg heter Nils Arne"
-    pat.hils(); // "Hei, jeg heter Pat"
+    nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
+    pat.hils(); // 'Hei, jeg heter Pat'
 
-    pat.katt = "Miss"; 
+    pat.katt = 'Miss'; 
 
-    console.log(pat.katt); // "Miss"
+    console.log(pat.katt); // 'Miss'
     console.log(per.katt); // undefined   
 
 ---
@@ -1029,20 +1418,20 @@ class: yellow middle center
 
 # Oppgaver - del 3
 
-## Prøv å få <a href="del3/tester.html">testene</a> til å bli grønne
+## Prøv å få <a href='del3/tester.html'>testene</a> til å bli grønne
 (oppgavene ligger i 05-javascript intro/del3/oppgave{1-5}.js)
 
 ---
 
 class: middle center yellow
 
-  # <a href="../06-dom & jquery/javascript-dom.html">Neste del</a>
+  # <a href='../06-dom & jquery/javascript-dom.html'>Neste del</a>
 
 
     </textarea>
 
-    <script src="node_modules/remark-bekk/vendor/remark.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
+    <script src='node_modules/remark-bekk/vendor/remark.min.js' type='text/javascript'></script>
+    <script type='text/javascript'>
       var slideshow = remark.create({
         ratio: '16:9',
         highlightStyle: 'monokai'

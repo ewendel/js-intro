@@ -1,6 +1,15 @@
-// Lag en funksjon som returnerer det første argumentet
+/*  
+    SIMPLE FUNCTIONS
+*/
+
+// Write a function "echo3rd()" that returns the first argument
 function echo(a) {
     return a;
+}
+
+// Write a function "echo3rd()" that returns the third argument
+function echo3rd(a,b,c) {
+    return c;
 }
 
 // Lag en funksjon som tar inn og summerer to tall
@@ -27,6 +36,8 @@ function addAll() {
 test('Simple functions', function() {
     equal(echo(0), 0, 'echo()');
     equal(echo('Hello world!'), 'Hello world!', 'echo()');
+
+    equal(echo3rd(0,0, 'Hai there.'), 'Hai there.', 'echo()');
 
     equal(add(0,2), 2, 'add()');
     equal(add(2,2), 4, 'add()');

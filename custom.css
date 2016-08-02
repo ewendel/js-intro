@@ -369,3 +369,8 @@ p#qunit-testresult span.failed {
     width: 1000px;
     height: 1000px;
 }
+
+.test-diff, .test-source {
+    display: none;
+}
+

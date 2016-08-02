@@ -1,4 +1,6 @@
-// STRINGS
+/*
+    STRINGS
+*/
 
 // skal returnere true hvis strengen er lenger enn åtte tegn
 function isLong(str) {

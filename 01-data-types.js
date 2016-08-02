@@ -3,8 +3,8 @@
     
     At the bottom of this file is a test suite.
     Your task is to make these tests pass.
-    Open oppgaver.html in the root folder to run the tests
-    and visually see the results.
+    Open oppgaver.html (located in the root project folder) 
+    with Chrome to run the tests and visually see the results.
 
     Read the test description to learn how to make it pass!
     (modifying the tests is very bad and definately frowned upon or worse)
@@ -12,7 +12,7 @@
 
 var aNumber = 12;
 var aBoolean = true;
-var aString = "Mickey Mouse";
+var aString = 'Mickey Mouse';
 var aStringlyTypedNumber = 123*456;
 
 var anObject = {
@@ -24,9 +24,9 @@ var anObject = {
 var anArray = [1,1,1,1,1];
 
 test('Datatypes', function() {
-    equal(typeof aNumber, 'number', 'aNumber must be a number');    
+    equal(typeof aNumber, 'number', 'aNumber must be a number');
 
-    equal(typeof aBoolean, 'boolean', 'aBoolean must be a boolean');    
+    equal(typeof aBoolean, 'boolean', 'aBoolean must be a boolean');
 
     equal(typeof aString, 'string', 'aString must be a string');    
     equal(aStringlyTypedNumber, '56088', 'aStringlyTypedNumber should be the product of 123 and 456');    

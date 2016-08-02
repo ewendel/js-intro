@@ -1,4 +1,5 @@
-/* THIS IS HARD
+/* 
+    THIS IS HARD
     
     This section is about the keyword "this" in JavaScript.
     It behaves very differently from class-based object-oriented langauges

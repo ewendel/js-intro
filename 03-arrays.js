@@ -1,7 +1,9 @@
-// ARRAYS
-// This page might prove helpful: 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-
+/*
+    ARRAYS
+    
+    This page might prove helpful: 
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+*/
 const coacher = ['Erik', 'Tine', 'Ola', 'Nicolay', 'Ingvild', 'Ingrid', 'Espen', 'Espen', 'Linda', 'Tori', 'Eivind', 'Safi', 'Jøran'];
 
 /* ------------------------------------------------- */
