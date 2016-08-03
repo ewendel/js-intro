@@ -68,12 +68,14 @@ function average(list) {}
 function median(list) {}
 
 test('Arrays', function() {
-    equal(coachCount, 13);
-    equal(fifthCoachName, 'Ingvild');
-    equal(espenIndex, 6)
-    equal(uppercasedCoachNames, 'ERIK-TINE-OLA-NICOLAY-INGVILD-INGRID-ESPEN-ESPEN-LINDA-TORI-EIVIND-SAFI-JØRAN');
+    equal(coachCount, 13, 'coachCount');
+    equal(fifthCoachName, 'Ingvild', 'fifth coach name');
+    equal(espenIndex, 6, 'index of Espen')
+    equal(uppercasedCoachNames, 'ERIK-TINE-OLA-NICOLAY-INGVILD-INGRID-ESPEN-ESPEN-LINDA-TORI-EIVIND-SAFI-JØRAN',
+          'uppercased coach names');
 
-    equal(String(types), 'object,number,number,boolean,boolean,function,undefined')
+    equal(String(types), 'object,number,number,boolean,boolean,function,undefined',
+          'array of types')
 
     equal(veryLargeArray.length, 100, 'A very large array');
     equal((new Set(veryLargeArray || [])).size, 100, 'A very large array should contain unique elements');
