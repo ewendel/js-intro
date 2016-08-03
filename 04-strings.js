@@ -67,7 +67,7 @@ test('Strings', function() {
     equal(trolls('This website is for losers LOL!'), 'Ths wbst s fr lsrs LL!', 'trolls()')
 
     ok(isPalindrome('anna'), 'isPalindrome()');
-    ok(isPalindrome('ann'), 'isPalindrome()');
+    notOk(isPalindrome('ann'), 'isPalindrome()');
     ok(isPalindrome('anna oxo anna'), 'isPalindrome()');
 
     equal(mirror('yes'), 'yessey', 'mirror()');
