@@ -74,9 +74,9 @@ test('Map, filter, reduce', function() {
     deepEqual(onlyOdds([1,2,3,4,5]), [1,3,5], 'onlyOdds');
     
     deepEqual(names, ['Jack', 'Jill', 'Joe', 'Jane', 'James', 'Jodie', 'Jorn', 'Jessica'], 'Names');
-    deepEqual(underagedNames, ['Jack', 'Jill'], 'Names');
-    deepEqual(sortedAges, [15,17,25,37,45,50,68,72], 'Names');
-    deepEqual(averageAge, 41.125, 'Names');
+    deepEqual(underagedNames, ['Jack', 'Jill'], 'underagedNames');
+    deepEqual(sortedAges, [15,17,25,37,45,50,68,72], 'sortedAges');
+    deepEqual(averageAge, 41.125, 'averageAge');
     
     equal(thirstyIn(150, [ 5, 30, 10 ]), 37, 'The Water Problem');
     equal(waterSupplyInDays, 76, 'The Water Problem #2');
