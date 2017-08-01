@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+    <meta http-equiv='content-type' content='text/html charset=utf-8' />
     <title>Introduksjon til JavaScript</title>
     <link href='node_modules/remark-bekk/dist/bekk.css' type='text/css' rel='stylesheet'>
     
     <style type='text/css' media='screen'>
 
-      .jquery { background-color: #1E2837; }
+      .jquery { background-color: #1E2837 }
 
     </style>
   </head>
@@ -19,7 +19,7 @@ class: middle
 ## Mens vi venter..
 
 * Klon repoet fra https://github.com/ewendel/js-intro
-* Svar på tilbakemeldingskjema for igår: http://is.gd/bootcampdag1
+* Svar på tilbakemeldingskjema for igår: https://is.gd/bootcamp17dag1
 
 ---
 
@@ -39,11 +39,12 @@ class: split
 ![Erik](bilder/rsz_erik.jpg)
 # Erik Wendel
 
-* NTNU 2012, kommunikasjonstekn.
-* 4 år i BEKK
-* SpareBank1 i 4 år, Mobilbank & Nettbank
-* Fagleder for Frontendarkitektur 
-* Bootcampcoach på 3. året
+* NTNU 2012, Kommunikasjonsteknologi
+* 5 år i BEKK
+* Tidligere: SpareBank1 (4 år), mobil- & nettbank
+* Nå: frontend lead på NSB
+* Fagleder for Webarkitektur 
+* 4 år som bootcampcoach
 
 ---
 
@@ -136,23 +137,28 @@ _Mozilla leverer JS til ECMA_
 * Juni 1997: ECMAScript standardisert
 --
 
-* 1998: ECMAScript 2
+* 1998: ES 2
 
 --
 
-* 1999: ECMAScript 3
+* 1999: ES 3
 
 --
 
-* 2004: ECMAScript 4 tryner
+* ~~2004~~: ES 4 blir aldri noe av
 
 --
 
-* 2009: ECMAScript 5
+* 2009: ES 5
 
 --
 
-* 2015: ECMAScript 6
+* 2015: ES 6 (eller ES2015)
+
+--
+
+* 2016: ES 7 (eller ES2016)
+* 2017: ES 8 (eller ES2017)
 
 ---
 
@@ -214,9 +220,9 @@ class: middle center
 
 # JavaScript vs Java
 
-&nbsp;
-&nbsp;
-&nbsp;
+&nbsp
+&nbsp
+&nbsp
 
  Dynamisk vs kompilert språk
 
@@ -236,7 +242,7 @@ class: agenda
 * funksjoner
 * arv og prototyper
 * standardbibliotek: Date, Math, Array, String
-* ES6: spread, rest, default params, classes, modules (ES6)
+* ES6: spread, rest, default params, classes, modules
 
 ---
 
@@ -299,35 +305,35 @@ SPØR OM HJELP DERSOM NOE ER VANSKELIG! Serr!
 Variabler er typeløse i JS
 
 ```javascript
-var errorText = "Det har oppstått en feil"; // String
-var successText = 'Hurra! Alt gikk bra.'; // String
+var errorText = "Det har oppstått en feil" // String
+var successText = 'Hurra! Alt gikk bra.' // String
 ```
 --
 ```javascript
-var loggedIn = true; // Boolean
+var loggedIn = true // Boolean
 ```
 --
 ```javascript
-var authLevel = 2; Number (heltall)
+var authLevel = 2 // Number (heltall)
 ```
 --
 ```javascript
-var interestRate = 2.5; // Number (flyttall)
+var interestRate = 2.5 // Number (flyttall)
 ```
 --
 ```javascript
-interestRate = false; // endre type
+interestRate = false // endre type
 ```
 --
 ```javascript
-var serviceList = []; // array
+var serviceList = [] // array
 ```
 
 ---
 
 class: middle center
 
-# Nytt i ECMAScript6
+# Nytt i ES6
 
 ```javascript
 var
@@ -342,17 +348,33 @@ _Kortversjon: alltid const!_
 # Variabler, objekter og datatyper
 
 ```javascript
-const errorText = "Det har oppstått en feil"; // String
-const successText = 'Hurra! Alt gikk bra.'; // String
+const errorText = "Det har oppstått en feil" // String
+const successText = 'Hurra! Alt gikk bra.' // String
 
-let loggedIn = true; // Boolean
+let loggedIn = true // Boolean
 
-let authLevel = 2; Number (heltall)
+let authLevel = 2 Number (heltall)
 
-const interestRate = 2.5; // Number (flyttall)
+const interestRate = 2.5 // Number (flyttall)
 
-const serviceList = []; // array
+const serviceList = [] // array
 ```
+
+---
+
+# Et ord om const
+
+
+```js
+const aList = [1,2,3]
+aList.pop()
+aList.push('why you not immutable!? :`( ')
+
+const anObject = { age: 17 }
+anObject.age = 'FAKE IMMUTABILITY'
+```
+
+_Dette tillates fordi referansen er den samme_ 
 
 ---
 
@@ -361,8 +383,8 @@ class: middle center
 # Number
 
 ```javascript
-const age = 29;
-const PI = 3.14;
+const age = 30
+const PI = 3.14
 ```
 
 _"double-precision 64-bit format IEEE 754 values"_ 
@@ -398,9 +420,9 @@ class: middle center
 # Number
 
 ```javascript
-Math.sin(3.5);
-Math.PI * (r + r);
-parseInt('1852', 10);
+Math.sin(3.5)
+Math.PI * (r + r)
+parseInt('1852', 10)
 parseInt(true) === NaN
 true === isNaN(NaN)
 1 / 0 = Infinity
@@ -450,7 +472,7 @@ class: middle center
 # Boolean
 
 ```javascript
-if (0) { ...}
+if (0) { ... }
 ```
 --
 ```javascript
@@ -474,15 +496,15 @@ class: middle center
 ```
 --
 ```javascript
-'hello'.length; // 5
-'hello'.charAt(0); // 'h'
-'hello, world'.replace('hello', 'goodbye'); // 'goodbye, world'
-'hello'.toUpperCase(); // 'HELLO'
+'hello'.length // 5
+'hello'.charAt(0) // 'h'
+'hello, world'.replace('hello', 'goodbye') // 'goodbye, world'
+'hello'.toUpperCase() // 'HELLO'
 ```
 --
 ```javascript
-'hello'.split(''); // ['h', 'e', 'l', 'l', 'o']
-'hello world'.split('lo'); // ['hel', ' world']
+'hello'.split('') // ['h', 'e', 'l', 'l', 'o']
+'hello world'.split('lo') // ['hel', ' world']
 ```
 ---
 
@@ -491,9 +513,9 @@ class: middle center
 # Symbol
 
 ```javascript
-const COLOR_RED = Symbol('red');
-COLOR_RED; // Symbol(red);
-Symbol('red') === Symbol('red'); // false
+const COLOR_RED = Symbol('red')
+COLOR_RED // Symbol(red)
+Symbol('red') === Symbol('red') // false
 ```
 _Brand new!_
 
@@ -518,10 +540,30 @@ class: middle center
 # null & undefined
 
 ```javascript
-let user = null; // loaded asynchronously
+let user = null // loaded asynchronously
 
 config.nonExistantProperty // undefined
 ```
+
+---
+
+# Optional commas
+
+```javascript
+let user = null;
+config.nonExistantProperty;
+```
+_Kodelinjer avsluttes med et komma_
+
+```javascript
+let user = null
+config.nonExistantProperty
+```
+_...meeeen du kan godt droppe dem._
+
+_Jeg anbefaler: skip it!_
+
+_(det finnes én felle: viser dere etterpå)_
 
 ---
 
@@ -532,7 +574,7 @@ class: middle center
 .. like hashmaps
 
 ```javascript
-Map<String, String> myMap = new HashMap<String, String>();
+Map<String, String> myMap = new HashMap<String, String>()
 ```
 
 ---
@@ -540,19 +582,19 @@ Map<String, String> myMap = new HashMap<String, String>();
 # Object
 
 ```javascript
-const object = {};
+const object = {}
 
 const BEKK = {
-    age: '16',
-    employees: 400
-};
+    age: '17',
+    employees: 414, // <----- trailing comma
+}
 
-BEKK.age;               // '16'
-BEKK['employees'];      // 400
-BEKK.key3;              // undefined
+BEKK.age               // '17'
+BEKK['employees']      // 414
+BEKK.key3              // undefined
 
-delete BEKK.age;
-BEKK.age;               // undefined
+delete BEKK.age
+BEKK.age               // undefined
 ```
 _note the commas_
 
@@ -564,12 +606,12 @@ _note the commas_
 
 const BEKK = {
     tech: {
-        boss: 'Jobi "Drammen" Birkeland
+        boss: 'Jobi Birkeland',
     },
-    doWork: function() { ... }
-};
+    doWork: function() { ... },
+}
 
-BEKK.doWork(); // Call the method
+BEKK.doWork() // Call the method
 BEKK.tech.boss // Nested retrieval
 ```
 
@@ -580,7 +622,7 @@ BEKK.tech.boss // Nested retrieval
 ## Arrays
 
 ```javascript
-const arr = [1, 2, 3];
+const arr = [1, 2, 3]
 ```
 ---
 
@@ -589,40 +631,58 @@ const arr = [1, 2, 3];
 ## Arrays
 
 ```javascript
-const arr = [1, 'too', { tree: 3 }];
+const arr = [1, 'too', { tree: 3 }]
 ```
+
 --
+
 ```javascript
-arr.push(4);
-```
---
-```javascript
-arr[1]; // 'two'
-arr[3] = 4;
-arr.length; // 4    
+arr[1] // 'two'
+arr[3] = 4
+arr.length // 4    
 ```
 
 _a collection of indexed properties_
 
 ---
 
+# Object 
+
+## Arrays
+
+```javascript
+cons arr = []
+arr.push(4)
+arr.includes(4) // true
+
+arr.pop()
+arr.includes(4) // false
+arr.indexOf(4) // -1
+```
+
+_Finnes en del nyttige funksjoner på Array:_
+
+google js mdn array
+
+---
+
 # Object
 
 ## Arrays
 ```javascript
-var obj = [1, 2, 3];
-obj.speed = 5; (!)
+var obj = [1, 2, 3]
+obj.speed = 5 // (!)
 ```
 --
 ```javascript
-obj[1];             // 2
+obj[1]             // 2
 obj.speed           // 5
 ```
 --
 ```javascript
-obj.length;         // 3
-obj[80] = true;
-obj.length;          // 81 ... huh?
+obj.length         // 3
+obj[80] = true
+obj.length          // 81 ... huh?
 ```
 
 ---
@@ -632,14 +692,14 @@ obj.length;          // 81 ... huh?
 Iteration: two kinds of loops
 
 ```javascript
-var obj = [1, 2, 3];
-obj.speed = 5;
+var obj = [1, 2, 3]
+obj.speed = 5
 ```
 --
 ```javascript
 // traditional for-loop: ideal for number-indexed arrays
-for (var i = 0; i < obj.length; ++i) {
-    obj[i];  // 1, 2, 3
+for (var i = 0 i < obj.length ++i) {
+    obj[i]  // 1, 2, 3
 }
 ```
 --
@@ -647,9 +707,11 @@ for (var i = 0; i < obj.length; ++i) {
 ```javascript
 // for in: ideal for objects
 for (var key in obj) {
-    obj[key];  // 1, 2, 3, 5
+    obj[key]  // 1, 2, 3, 5
 }
 ```
+
+_Vi bruker svært sjelden løkker i JS, men heller `map`, `filter` og `reduce`
 
 ---
 
@@ -658,19 +720,19 @@ for (var key in obj) {
 Vi kan bruke **typeof**-operatoren for å sjekke type.
 
 
-    typeof {};          // 'object'
+    typeof {}          // 'object'
 --
-    typeof [];          // 'object'     WTF?
+    typeof []          // 'object'     WTF?
 --
-    typeof 1;           // 'number'
+    typeof 1           // 'number'
 --
-    typeof '';          // 'string'
+    typeof ''          // 'string'
 --
-    typeof true;        // 'boolean'
+    typeof true        // 'boolean'
 --
-    typeof minVar;      // 'undefined'
+    typeof minVar      // 'undefined'
 --
-    typeof null;        // 'object'     WTF?
+    typeof null        // 'object'     WTF?
 
 ---
 
@@ -709,8 +771,8 @@ class: middle center
 # Equality
 
 ```javascript
-const person = { name: 'David' };
-const otherPerson = person;
+const person = { name: 'David' }
+const otherPerson = person
 person === { name: 'David' } // -> false, nyskapt objekt
 person === otherPerson // -> true, same referanse
 ```
@@ -746,7 +808,7 @@ function() {}
 ```javascript
 function myFunc() {}
 const myFunc = function() {}
-myFunc();
+myFunc()
 ```
 
 ---
@@ -756,10 +818,10 @@ class: middle
 
 ```javascript
 function divide(a, b) {
-  return a / b;
+  return a / b
 }
 
-let average = divide(10,2);
+let average = divide(10,2)
 ```
 --
 
@@ -771,7 +833,7 @@ function doStuff(a, b, c, d, e) { ... }
 ```javascript
 let recur = function(num) {
   ...
-  return recur(num - 1);
+  return recur(num - 1)
 }
 ```
 ---
@@ -784,12 +846,12 @@ Alle funksjoner har tilgang til _arguments_:
 
 ```javascript
 function countArguments() {
-  return arguments.length;
+  return arguments.length
 }
 
-countArguments();              // 0
-countArguments('one');         // 1
-countArguments('one', 'two');  // 2
+countArguments()              // 0
+countArguments('one')         // 1
+countArguments('one', 'two')  // 2
 ```
 
 ---
@@ -806,18 +868,18 @@ class: middle
 
 ```javascript
 function addOne(x) {
-    return x + 1;
+    return x + 1
 }
 
-const addOne = x => x + 1;
+const addOne = x => x + 1
 ```
 --
 ```javascript
-const product = (x,y) => x * y;
+const product = (x,y) => x * y
 ```
 --
 ```javascript
-const modifier = () => 250;
+const modifier = () => 250
 ```
 
 ---
@@ -827,9 +889,9 @@ class: middle
 
 ```javascript
 const bigFunc = (x,y,c) => {
-    if (...) return 0;
-    else return -1;
-};
+    ...
+    return someResult
+}
 ```
 
 Multilines require _return_
@@ -837,7 +899,8 @@ Multilines require _return_
 ---
 
 class: middle center
-![]()
+![](bilder/js.png)
+
 # Oppgaver!
 
 Finn filen _oppgaver.html_ og åpne denne i Chrome.
@@ -862,14 +925,14 @@ Funksjoner som returnerer andre funksjoner:
 ```javascript
 function createFunction() {
   return function(name) {
-    console.log('Hello, ' + name);
-  };
+    console.log('Hello, ' + name)
+  }
 }
 ```
 --
 ```javascript
-var sayHello = createFunction();
-sayHello('World');  // 'Hello World'
+var sayHello = createFunction()
+sayHello('World')  // 'Hello World'
 ```
 
 ---
@@ -881,11 +944,11 @@ Funksjoner som returnerer andre funksjoner:
 
 ```javascript
 const createFunction = () => {
-  return name => console.log('Hello, ' + name);
+  return name => console.log('Hello, ' + name)
 }
 
-const sayHello = createFunction();
-sayHello('World');  // 'Hello World'
+const sayHello = createFunction()
+sayHello('World')  // 'Hello World'
 ```
 
 ---
@@ -898,16 +961,16 @@ Funksjoner kan sendes rundt:
 
 ```javascript
 function doSomething(arr, callback) {
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0 i < arr.length i++) {
         // do something cool 
     }
-    callback(); 
+    callback() 
 }
 
 const myCallback = function() {
     console.log('Ferdig!')
 }
-doSomething([1,2], myCallback);
+doSomething([1,2], myCallback)
 ```
 
 ---
@@ -916,15 +979,15 @@ doSomething([1,2], myCallback);
 
 ```javascript
 array.forEach((element, index, array) => {
-    console.log(element);    
-});
+    console.log(element)    
+})
 ```
 --
 ```javascript
 const logStuff = (element, index, array) => {
-    console.log(element);    
+    console.log(element)    
 }
-array.forEach(logStuff);
+array.forEach(logStuff)
 ```
 
 ---
@@ -968,7 +1031,7 @@ class: middle center
 ```javascript
 array.map
 array.filter
-array.reduce((acc, current) => acc + current, 0);
+array.reduce((acc, current) => acc + current, 0)
 ```
 
 ---
@@ -979,7 +1042,7 @@ class: middle center
 array
 .filter(x => x.age > 18)
 .map(x => x.money)
-.reduce((acc, current) => acc + current, 0);
+.reduce((acc, current) => acc + current, 0)
 ```
 
 --
@@ -995,13 +1058,13 @@ JavaScript har *funksjonscope* - ikke blokkscope
 
 ```javascript
 function() {
-  i;  // undefined    WTF?
+  i  // undefined    WTF?
 
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0 i < 10 i++) {
 
   }
 
-  i;  // 10
+  i  // 10
 }   
 ```
 
@@ -1015,13 +1078,13 @@ Deklarer variabler på toppen av en funksjon!
 
 ```javascript
 function() {
-  var i;
+  var i
 
-  for (i = 0; i < 10; i++) {
+  for (i = 0 i < 10 i++) {
 
   }
 
-  i;  // 10
+  i  // 10
 } 
 ```
 
@@ -1034,13 +1097,13 @@ function() {
 Funksjoner har tilgang til alt i ytre scope
 
 ```javascript
-var a = 1;
+var a = 1
 
 function doSomething () {
-  a;  // 1
+  a  // 1
 
   function doMore () {
-    a;  // 1
+    a  // 1
   }
 }       
 ```
@@ -1055,15 +1118,15 @@ Men ikke motsatt
 
 ```javascript
 function doSomething () {
-  var b = 1;
+  var b = 1
 
   function doMore () {
-    b;  // 1
+    b  // 1
   }
 }
-doSomething();
+doSomething()
 
-b;  // ReferenceError
+b  // ReferenceError
 ```
 
 ---
@@ -1076,15 +1139,15 @@ Husk var - ellers blir variabelen global!
 
 ```javascript
 function doSomething () {
-  c = 1;
+  c = 1
 
   function doMore () {
-    c;  // 1
+    c  // 1
   }
 }
-doSomething();
+doSomething()
 
-c;  // 1
+c  // 1
 ```
 
 ---
@@ -1097,16 +1160,16 @@ Funksjoner kan binde scope:
 
 ```javascript
 const counter = function() {
-  let i = 0;
+  let i = 0
 
   return function() {
-    return i++;
-  };
-};
+    return i++
+  }
+}
 
-const inc = counter();
-inc();  // 0
-inc();  // 1
+const inc = counter()
+inc()  // 0
+inc()  // 1
 ```
 
 ---
@@ -1119,15 +1182,15 @@ Funksjoner kan kalles umiddelbart:
 
 ```javascript
 var inc = function() {
-  var i = 0;
+  var i = 0
 
   return function() {
-    return i++;
-  };
-}();  // Note the trailing ()!
+    return i++
+  }
+}()  // Note the trailing ()!
 
-inc();  // 0
-inc();  // 1
+inc()  // 0
+inc()  // 1
 ```
 
 ---
@@ -1139,21 +1202,21 @@ inc();  // 1
 Lag moduler med privat tilstand:
 
 ```javascript
-const lib = {};
+const lib = {}
 lib.module = (function() {
 
-  const privateVariable;
+  const privateVariable
 
-  const privateFunction = function() {};
+  const privateFunction = function() {}
 
   return {
     publicProperty: 1,
     privilegedMethod: function(arg) {
-      // privateVariable = arg;
+      // privateVariable = arg
     }
-  };
+  }
 
-})();
+})()
 ```
 
 ---
@@ -1167,14 +1230,14 @@ Når vi kaller en funksjon med nøkkelordet *new*, blir funksjonen en konstrukt�
 function Person(name) {
   // this === et nyskapt object
 
-  this.name = name;
+  this.name = name
   // this returneres implisitt
 }
 
-const bob = new Person('bob');
-const ed = new Person('ed');
+const bob = new Person('bob')
+const ed = new Person('ed')
 
-ed.name = 'fred';
+ed.name = 'fred'
 ```
 
 ---
@@ -1187,11 +1250,11 @@ Ooops!
 
 ```javascript
 function Person(name) {
-  this.name = name;
+  this.name = name
 }
 
-var bob = Person('bob');
-var ed = new Person('ed');
+var bob = Person('bob')
+var ed = new Person('ed')
 
 window.name === 'bob'  // true    WTF?
 ```
@@ -1216,17 +1279,17 @@ object.method() // this = object
 --
 ```javascript
 // Andre huskeregel: konstruktører
-const honda = new Car();
+const honda = new Car()
 ```
 --
 ```javascript
 // Tredje huskeregel: call, apply og bind
-myFunction(1,2); // window
-myFunction.call(object, 1, 2); // object
-myFunction.apply(object, [1,2]); // object
+myFunction(1,2) // window
+myFunction.call(object, 1, 2) // object
+myFunction.apply(object, [1,2]) // object
 
-newFunc = myFunction.bind(object);
-newFunc(1,2);
+newFunc = myFunction.bind(object)
+newFunc(1,2)
 ```
 ---
 
@@ -1249,14 +1312,14 @@ class: middle center
 # Arv
 
 ```javascript  
-'hello'.length; // 5
-'hello'.charAt(0); // 'h'
-'hello, world'.replace('hello', 'goodbye'); // 'goodbye, world'
-'hello'.toUpperCase(); // 'HELLO'
-'hello'.split(''); // ['h', 'e', 'l', 'l', 'o']
-myFunction.call();
-myFunction.apply();
-(25.0000004).toFixed(2);
+'hello'.length // 5
+'hello'.charAt(0) // 'h'
+'hello, world'.replace('hello', 'goodbye') // 'goodbye, world'
+'hello'.toUpperCase() // 'HELLO'
+'hello'.split('') // ['h', 'e', 'l', 'l', 'o']
+myFunction.call()
+myFunction.apply()
+(25.0000004).toFixed(2)
 ```
 
 ---
@@ -1286,10 +1349,10 @@ class: middle center
    * @see {EventPluginHub.injection.injectEventPluginOrder}
    */
   injectEventPluginOrder: function (InjectedEventPluginOrder) {
-    !!EventPluginOrder ? "development" !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject event plugin ordering more than once. You are likely trying to load more than one copy of React.') : _prodInvariant('101') : void 0;
+    !!EventPluginOrder ? "development" !== 'production' ? invariant(false, 'EventPluginRegistry: Cannot inject event plugin ordering more than once. You are likely trying to load more than one copy of React.') : _prodInvariant('101') : void 0
     // Clone the ordering so it cannot be dynamically mutated.
-    EventPluginOrder = Array.prototype.slice.call(InjectedEventPluginOrder);
-    recomputePluginOrdering();
+    EventPluginOrder = Array.prototype.slice.call(InjectedEventPluginOrder)
+    recomputePluginOrdering()
   }
 ```
 
@@ -1302,11 +1365,11 @@ _Prototyper kan utvides_
 
 ```javascript
 String.prototype.log = function() {
-    console.log('Logged string: ' + String(this));
-};
+    console.log('Logged string: ' + String(this))
+}
 
 var navn = 'Erik Wendel'
-navn.log(); // 'Logged string: Erik Wendel'
+navn.log() // 'Logged string: Erik Wendel'
 ```
 --
 ```javascript
@@ -1327,13 +1390,13 @@ class: middle center
 
 ```javascript
 var Person = function(navn, stilling, firma) {
-    this.navn = navn;
-    this.stilling = stilling;
-    this.firma = firma;
+    this.navn = navn
+    this.stilling = stilling
+    this.firma = firma
     this.hils = function() {
-        console.log('Hei, jeg heter ' + this.navn);
-    };
-};
+        console.log('Hei, jeg heter ' + this.navn)
+    }
+}
 ```
 
 ---
@@ -1342,92 +1405,16 @@ var Person = function(navn, stilling, firma) {
 
 ```javascript
 var Person = function(navn, stilling, firma) {
-    this.navn = navn;
-    this.stilling = stilling;
-    this.firma = firma;
+    this.navn = navn
+    this.stilling = stilling
+    this.firma = firma
     this.hils = function() {
-        console.log('Hei, jeg heter ' + this.navn);
-    };
-};
-
-var pat = new Person('Pat', 'postmann', 'Posten');
-var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-```
-
----
-
-# Arv 
-
-```javascript
-var Person = function(navn, stilling, firma) {
-    this.navn = navn;
-    this.stilling = stilling;
-    this.firma = firma;
-    this.hils = function() {
-        console.log('Hei, jeg heter ' + this.navn);
-    };
-};
-
-var pat = new Person('Pat', 'postmann', 'Posten');
-var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
-pat.hils(); // 'Hei, jeg heter Pat'
-```
-
----
-
-# Arv 
-
-```javascript
-var Person = function(navn, stilling, firma) {
-    this.navn = navn;
-    this.stilling = stilling;
-    this.firma = firma;
-};
-
-var pat = new Person('Pat', 'postmann', 'Posten');
-var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-```
-
----
-
-# Arv 
-
-```javascript
-var Person = function(navn, stilling, firma) {
-    this.navn = navn;
-    this.stilling = stilling;
-    this.firma = firma;
-};
-
-var pat = new Person('Pat', 'postmann', 'Posten');
-var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
-Person.prototype.hils = function() {
-    console.log('Hei, jeg heter ' + this.navn);
-};
-```
-
----
-
-# Arv 
-
-```javascript
-var Person = function(navn, stilling, firma) {
-    this.navn = navn;
-    this.stilling = stilling;
-    this.firma = firma;
-};
-
-var pat = new Person('Pat', 'postmann', 'Posten');
-var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
-Person.prototype.hils = function() {
-    console.log('Hei, jeg heter ' + this.navn);
+        console.log('Hei, jeg heter ' + this.navn)
+    }
 }
 
-nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
-pat.hils(); // 'Hei, jeg heter Pat'
+var pat = new Person('Pat', 'postmann', 'Posten')
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg')
 ```
 
 ---
@@ -1436,22 +1423,18 @@ pat.hils(); // 'Hei, jeg heter Pat'
 
 ```javascript
 var Person = function(navn, stilling, firma) {
-    this.navn = navn;
-    this.stilling = stilling;
-    this.firma = firma;
-};
-
-var pat = new Person('Pat', 'postmann', 'Posten');
-var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
-Person.prototype.hils = function() {
-    console.log('Hei, jeg heter ' + this.navn);
+    this.navn = navn
+    this.stilling = stilling
+    this.firma = firma
+    this.hils = function() {
+        console.log('Hei, jeg heter ' + this.navn)
+    }
 }
 
-nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
-pat.hils(); // 'Hei, jeg heter Pat'
+var pat = new Person('Pat', 'postmann', 'Posten')
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg')
 
-pat.katt = 'Miss'; 
+pat.hils() // 'Hei, jeg heter Pat'
 ```
 
 ---
@@ -1460,31 +1443,111 @@ pat.katt = 'Miss';
 
 ```javascript
 var Person = function(navn, stilling, firma) {
-    this.navn = navn;
-    this.stilling = stilling;
-    this.firma = firma;
-};
-
-var pat = new Person('Pat', 'postmann', 'Posten');
-var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg');
-
-Person.prototype.hils = function() {
-    console.log('Hei, jeg heter ' + this.navn);
+    this.navn = navn
+    this.stilling = stilling
+    this.firma = firma
 }
 
-nils_arne.hils(); // 'Hei, jeg heter Nils Arne'
-pat.hils(); // 'Hei, jeg heter Pat'
+var pat = new Person('Pat', 'postmann', 'Posten')
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg')
+```
 
-pat.katt = 'Miss'; 
+---
 
-console.log(pat.katt); // 'Miss'
-console.log(per.katt); // undefined   
+# Arv 
+
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn
+    this.stilling = stilling
+    this.firma = firma
+}
+
+var pat = new Person('Pat', 'postmann', 'Posten')
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg')
+
+Person.prototype.hils = function() {
+    console.log('Hei, jeg heter ' + this.navn)
+}
+```
+
+---
+
+# Arv 
+
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn
+    this.stilling = stilling
+    this.firma = firma
+}
+
+var pat = new Person('Pat', 'postmann', 'Posten')
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg')
+
+Person.prototype.hils = function() {
+    console.log('Hei, jeg heter ' + this.navn)
+}
+
+nils_arne.hils() // 'Hei, jeg heter Nils Arne'
+pat.hils() // 'Hei, jeg heter Pat'
+```
+
+---
+
+# Arv 
+
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn
+    this.stilling = stilling
+    this.firma = firma
+}
+
+var pat = new Person('Pat', 'postmann', 'Posten')
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg')
+
+Person.prototype.hils = function() {
+    console.log('Hei, jeg heter ' + this.navn)
+}
+
+nils_arne.hils() // 'Hei, jeg heter Nils Arne'
+pat.hils() // 'Hei, jeg heter Pat'
+
+pat.katt = 'Miss' 
+```
+
+---
+
+# Arv 
+
+```javascript
+var Person = function(navn, stilling, firma) {
+    this.navn = navn
+    this.stilling = stilling
+    this.firma = firma
+}
+
+var pat = new Person('Pat', 'postmann', 'Posten')
+var nils_arne = new Person('Nils Arne', 'trener', 'Rosenborg')
+
+Person.prototype.hils = function() {
+    console.log('Hei, jeg heter ' + this.navn)
+}
+
+nils_arne.hils() // 'Hei, jeg heter Nils Arne'
+pat.hils() // 'Hei, jeg heter Pat'
+
+pat.katt = 'Miss' 
+
+console.log(pat.katt) // 'Miss'
+console.log(per.katt) // undefined   
 ```
 
 ---
 
 class: middle center
-![]()
+![](bilder/js.png)
 # Oppgaver!
 
 Fortsett der dere slapp i _oppgaver.html_
@@ -1518,8 +1581,8 @@ class: agenda
 # Modules
 
 ```javascript
-import React from 'react';
-import { formatAccountNumber } from './sparebank1-utils';
+import React from 'react'
+import { formatAccountNumber } from './sparebank1-utils'
 ```
 --
 ```javascript
@@ -1528,7 +1591,7 @@ const React = {
     ...
 }
 
-export default React;
+export default React
 ```
 --
 ```javascript
@@ -1555,7 +1618,7 @@ class: middle
 
 ```javascript
 function hello(who='World') {
-    return 'Hello ' + who + '!';
+    return 'Hello ' + who + '!'
 }
 ```
 
@@ -1588,12 +1651,24 @@ const config = {
     ...
 }
 
-const { url, timeout } = config;
+// A
+
+const { url, timeout } = config
+
+// B
+
+const url = config.url
+const timeout = config.timeout
 ```
+
+---
+
+# Destructuring
+
 --
 ```javascript
 function(options) {
-    const { url, timeout } = options;
+    const { url, timeout } = options
 }
 ```
 --
@@ -1610,13 +1685,13 @@ const func = ({ url, options }) => { ... }
 # Array destructuring
 
 ```javascript
-const temperatureHistory = [20.9, 22.2, 21.4, 21.0, etc];
+const temperatureHistory = [20.9, 22.2, 21.4, 21.0, 20.1, 20.2, 19.5, 19.2]
 
-const [mostRecent, secondMostRecent] = temperatureHistory;
+const [mostRecent, secondMostRecent] = temperatureHistory
 ```
 --
 ```javascript
-const [oldest, ...allButOldest] = temperatureHistory.reverse();
+const [oldest, ...allButOldest] = temperatureHistory.reverse()
 ```
 
 ---
@@ -1629,7 +1704,7 @@ function(first, second, third, ...rest) { ... }
 --
 ```javascript
 function sum(...numbers) {
-    return numbers.reduce((x,y) => x+y, 0);
+    return numbers.reduce((x,y) => x+y, 0)
 }
 ```
 
@@ -1640,15 +1715,15 @@ function sum(...numbers) {
 "sprer" arrayelementer utover
 
 ```javascript
-const arr1 = [1,2,3];
-const arr2 = [2,3,4];
+const arr1 = [1,2,3]
+const arr2 = [2,3,4]
 
 const combined = [...arr1, arr2]
 ```
 --
 ```javascript
-const params = [1,2,3,4,5];
-sum(...params);
+const params = [1,2,3,4,5]
+sum(...params)
 
 function sum(a,b,c,d,e) { ... }
 ```
@@ -1660,21 +1735,21 @@ function sum(a,b,c,d,e) { ... }
 ```javascript
 class Animal {
     constructor(color) {
-        this.color = color;
+        this.color = color
     }
 }
 
 class Doge extends Animal {
     constructor(color, race) {
-        super(color);
-        this.race = race;
+        super(color)
+        this.race = race
     }
     bark() {
-        return 'Woof!';
+        return 'Woof!'
     }
 }
 
-let charlie = new Doge('black', 'dobermann');
+let charlie = new Doge('black', 'dobermann')
 ```
 
 ---
@@ -1690,13 +1765,13 @@ class: middle center
 # Map & Set
 
 ```javascript
-var mySet = new Set();
+var mySet = new Set()
 
-mySet.add(1);
+mySet.add(1)
 
-mySet.has(1); // true
-mySet.size; // 4
-mySet.delete(5); // removes 5 from the set
+mySet.has(1) // true
+mySet.size // 4
+mySet.delete(5) // removes 5 from the set
 ```
 
 ---
@@ -1714,16 +1789,52 @@ class: split
 ![](bilder/road.jpg)
 # JS-Veien videre
 
-* Frontendkurs: 3 dager
+* Frontendkurs: 2 dager
     * HTML
     * CSS
     * DOM + jQuery
     * React + Redux
 * Læring på prosjekt
 * Egen kompetansebygging
-* 2017: faggrupper
-    * Frontendarkitektur
-    * Webgrensesnitt
+* 2017: Fire faggrupper
+    * Frontendprogrammet
+    * Design Engineering
+    * Innovative Grensesnitt
+    * Webarkitektur
+
+---
+
+class: split
+![](bilder/road.jpg)
+
+# Hva som rører seg i JS-verden
+
+* Mye rammeverk de siste årene
+
+--
+
+* React og Redux en slags bransjestandard
+
+--
+
+* Typet JS (TypeScript og Flow) stadig mer populært, og nesten en nødvendighet
+
+--
+
+* Compile-to-js språk som Elm vokser raskt
+
+--
+
+* BEKK har en egen Elm-satsning
+
+--
+
+* 4 sommerprosjekter med Elm i 2017
+
+--
+
+* Et par BEKK-prosjekter med Elm
+
 
 ---
 
@@ -1784,7 +1895,7 @@ class: middle center
       var slideshow = remark.create({
         ratio: '16:9',
         highlightStyle: 'monokai'
-      });
+      })
     </script>
   </body>
 </html>

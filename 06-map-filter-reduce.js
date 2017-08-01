@@ -11,11 +11,11 @@
 // Part 1 - Playing with numbers
 /* ------------------------------------------------- */
 
-// Create a method "square()" that accepts an array
+// Create a method "square()" that takes an array
 // of numbers and returns these numbers squared (x^2)
 let square;
 
-// Create a method "onlyOdds()" that accepts an array
+// Create a method "onlyOdds()" that takes an array
 // of numbers and returns only the odd numbers of the array 
 let onlyOdds;
 

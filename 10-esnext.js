@@ -81,6 +81,15 @@ const luke = {
       ]
 }
 
+/*
+  New versions of JavaScript are being released every year.
+  Feel free to wrap up the workshop by reading short summaries of what's new in ES2016 and ES2017:
+  
+  http://2ality.com/2016/01/ecmascript-2016.html
+
+  http://2ality.com/2016/02/ecmascript-2017.html
+  
+*/
 
 test('ES6', function() {
     equal(footerMessage(fullName, lastLogon, weatherForecast), 
