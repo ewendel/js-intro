@@ -2,7 +2,7 @@
     SIMPLE FUNCTIONS
 */
 
-// Write a function "echo3rd()" that returns the first argument
+// Write a function "echo()" that returns the first argument
 function echo() {}
 // Write a function "echo3rd()" that returns the third argument
 function echo3rd() {}
