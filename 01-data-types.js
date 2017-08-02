@@ -26,7 +26,7 @@ test('Datatypes', function() {
     equal(typeof aBoolean, 'boolean', 'aBoolean must be a boolean');
 
     equal(typeof aString, 'string', 'aString must be a string');    
-    equal(aStringlyTypedNumber, '56088', 'aStringlyTypedNumber should be the product of 123 and 456');    
+    strictEqual(aStringlyTypedNumber, '56088', 'aStringlyTypedNumber should be the product of 123 and 456');    
 
     equal(typeof anObject, 'object', 'anObject must be an object');    
     equal(Object.keys(anObject).length, 3, 'anObject must have three properties');    
