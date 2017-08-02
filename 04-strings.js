@@ -6,7 +6,7 @@
     Complete the functions in this file as per the instructions.
 */
 
-// Long strings are <8 characters long.
+// Long strings are >8 characters long.
 function isLong(str) {}
 
 // Stuff gets more important UPPERCASED and with a couple of exclamations!
